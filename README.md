@@ -1,3 +1,4 @@
+[![Stories in Ready](https://badge.waffle.io/lauraturk/MadTalk.png?label=ready&title=Ready)](https://waffle.io/lauraturk/MadTalk?utm_source=badge)
 # MadTalk
 
 
