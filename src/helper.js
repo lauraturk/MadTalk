@@ -1,6 +1,21 @@
 
 export default class Helper {
 
+  async getPrintSample () {
+    let jsonText = await fetch('https://byob-madlib.herokuapp.com/api/v1/text_samples/1');
+    let textSample = await jsonText.json();
+    let sampleArr = [4, 7, 15, 39, 40]
+
+    let gameTemplate = textSample[0].body.split(' ');
+
+    sampleArr.forEach( selectedIndex => {
+      gameTemplate.splice(selectedIndex, 0, "<span>TEXT</span>" )
+    })
+
+    // gameTemplate = gameTemplate.join(' ')
+    return gameTemplate;
+  }
+
   async getTextSample () {
     let jsonText = await fetch('https://byob-madlib.herokuapp.com/api/v1/text_samples/1/words');
     let textSample = await jsonText.json();
@@ -35,7 +50,9 @@ export default class Helper {
       qtyVerbSelected: Math.round(wordTallies.core['VB'] / qtyCoreWords * qtySelectedWords),
       qtyAdjSelected: Math.round(wordTallies.core['JJ'] / qtyCoreWords * qtySelectedWords),
     }
-console.log(wordTalliesByCore);
+
+    // console.log(text);
+
     return wordTalliesByCore;
   }
 
