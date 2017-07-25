@@ -6,6 +6,7 @@ export default class Helper {
     return textSample;
   }
 
+
   async distributeSelections (text) {
     // const text = await this.getTextSample()
     let wordTallies = text.reduce((acc, wordObj) => {
