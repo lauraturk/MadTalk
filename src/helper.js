@@ -7,8 +7,8 @@ export default class Helper {
     return textSample;
   }
 
-  async distributeSelections () {
-    const text = await this.getTextSample()
+  async distributeSelections (text) {
+    // const text = await this.getTextSample()
     let wordTallies = text.reduce((acc, wordObj) => {
       !acc.all[wordObj.type]
         ? acc.all[wordObj.type] = 1
@@ -35,14 +35,50 @@ export default class Helper {
       qtyVerbSelected: Math.round(wordTallies.core['VB'] / qtyCoreWords * qtySelectedWords),
       qtyAdjSelected: Math.round(wordTallies.core['JJ'] / qtyCoreWords * qtySelectedWords),
     }
-console.log(wordTalliesByCore);
     return wordTalliesByCore;
   }
 
-  async randomizeSelections (qtyNounSelected, qtyVerbSelected, qtyAdjSelected) {
-    //chris
-    //use test sample
-    //return [index1, index2, index3...]
+  async getPartsOfSpeech () {
+    const text = await this.getTextSample();
+    const totals = await this.distributeSelections(text);
+
+    let adjArray = []
+    let nounArray = []
+    let verbArray = []
+
+    // text.forEach((word) =>{
+    //
+    // })
+
+
+    // let selectedAdjs =  this.randomizeSelections(totals.qtyAdjSelected, adjArray)
+    // let selectedNouns = this.randomizeSelections(12, nounArray)
+    // let selectedVerbs = this.randomizeSelections(5, verbArray)
+    console.log(text)
   }
 
+  randomizeSelections(total, pos){
+    let randoms = pos.reduce((acc, el) =>{
+    acc[el.word] = Math.round(1000 * Math.random())/1000
+      return acc
+    }, {})
+
+    let randomWords = Object.keys(randoms)
+    let randomVals = Object.values(randoms).sort((a, b) =>{
+      return a - b;
+    })
+
+    let selectedWords = [];
+
+    randomVals.forEach((val, i) =>{
+      if(i < total){
+        randomWords.forEach((word) =>{
+          if(randoms[word] === val){
+            selectedWords.push(pos.find(posWord => posWord.word === word))
+          }
+        })
+      }
+    })
+    return selectedWords
+  }
 }

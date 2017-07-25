@@ -12,7 +12,7 @@ class App extends Component {
   // }
 
   componentDidMount () {
-    helper.distributeSelections('console this yo');
+    let selectedWords = helper.getPartsOfSpeech();
   }
 
   render() {
