@@ -8,14 +8,25 @@ import Helper from './helper.js';
 let helper = new Helper();
 
 class App extends Component {
-  // constructor () {
-  //   super()
-  //   // this.helper = new Helper()
-  // }
+  constructor () {
+    super()
+    this.state = {
+      textSample: {},
+      words: [],
+    }
+  }
 
   componentDidMount () {
-    helper.getPartsOfSpeech()
-      .then(response => console.log(response));
+    helper.getTextSample()
+      .then(response => {
+        this.setState({
+          textSample: response.textSample[0],
+          words: response.words
+        })
+      })
+      .then(() =>{
+        helper.getPartsOfSpeech(this.state.words)
+      })
   }
 
   render () {
