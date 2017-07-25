@@ -1,7 +1,7 @@
 
 export default class Helper {
   async getTextSample () {
-    let jsonText = await fetch('https://byob-madlib.herokuapp.com/api/v1/text_samples/1/words');
+    let jsonText = await fetch('https://byob-madlib.herokuapp.com/api/v1/text_samples/5/words');
     let textSample = await jsonText.json();
     return textSample;
   }
