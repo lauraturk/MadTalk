@@ -1,12 +1,16 @@
 
 export default class Helper {
+  
   async getTextSample () {
-    let jsonText = await fetch('https://byob-madlib.herokuapp.com/api/v1/text_samples/5/words');
-    let textSample = await jsonText.json();
-    return textSample;
+    let wordsData = await fetch('https://byob-madlib.herokuapp.com/api/v1/text_samples/5/words');
+    let textSampleData = await fetch('https://byob-madlib.herokuapp.com/api/v1/text_samples/5')
+
+    let words = await wordsData.json();
+    let textSample = await textSampleData.json();
+    return {words, textSample};
   }
 
-  async distributeSelections (text) {
+  distributeSelections (text) {
     // const text = await this.getTextSample()
     let wordTallies = text.reduce((acc, wordObj) => {
       !acc.all[wordObj.type]
@@ -37,15 +41,14 @@ export default class Helper {
     return wordTalliesByCore;
   }
 
-  async getPartsOfSpeech () {
-    const text = await this.getTextSample();
-    const totals = await this.distributeSelections(text);
+  getPartsOfSpeech (wordsArray) {
+    const totals =  this.distributeSelections(wordsArray);
 
     let adjArray = [];
     let nounArray = [];
     let verbArray = [];
 
-    text.forEach((word) => {
+    wordsArray.forEach((word) => {
       if (word.type.includes('NN')) {
         nounArray.push(word);
       } else if (word.type.includes('VB')) {
