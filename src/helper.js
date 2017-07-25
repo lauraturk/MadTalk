@@ -46,22 +46,27 @@ export default class Helper {
     let nounArray = []
     let verbArray = []
 
-    // text.forEach((word) =>{
-    //
-    // })
+    text.forEach((word) =>{
+      if(word.type.includes('NN')){
+        nounArray.push(word);
+      } else if (word.type.includes('VB')){
+        verbArray.push(word);
+      } else if (word.type.includes('JJ')){
+        adjArray.push(word);
+      }
+    })
 
-
-    // let selectedAdjs =  this.randomizeSelections(totals.qtyAdjSelected, adjArray)
-    // let selectedNouns = this.randomizeSelections(12, nounArray)
-    // let selectedVerbs = this.randomizeSelections(5, verbArray)
-    console.log(text)
+    let selectedAdjs =  this.randomizeSelections(totals.qtyAdjSelected, adjArray)
+    let selectedNouns = this.randomizeSelections(totals.qtyNounSelected, nounArray)
+    let selectedVerbs = this.randomizeSelections(totals.qtyVerbSelected, verbArray)
+    return {selectedAdjs, selectedNouns, selectedVerbs}
   }
 
   randomizeSelections(total, pos){
     let randoms = pos.reduce((acc, el) =>{
-    acc[el.word] = Math.round(1000 * Math.random())/1000
-      return acc
-    }, {})
+      acc[el.word] = Math.round(1000 * Math.random())/1000
+        return acc
+      }, {})
 
     let randomWords = Object.keys(randoms)
     let randomVals = Object.values(randoms).sort((a, b) =>{

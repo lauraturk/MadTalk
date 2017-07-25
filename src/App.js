@@ -12,7 +12,8 @@ class App extends Component {
   // }
 
   componentDidMount () {
-    let selectedWords = helper.getPartsOfSpeech();
+    let selectedWords = helper.getPartsOfSpeech()
+    .then((response => console.log(response)))
   }
 
   render() {
