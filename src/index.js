@@ -1,7 +1,9 @@
+/* eslint-disable */
 import React from 'react';
+import App from './App';
+/* eslint-enable */
 import ReactDOM from 'react-dom';
 import './index.css';
-import App from './App';
 import registerServiceWorker from './registerServiceWorker';
 
 ReactDOM.render(<App />, document.getElementById('root'));
