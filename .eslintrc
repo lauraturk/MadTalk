@@ -1,0 +1,16 @@
+{
+    "extends": "standard",
+    "rules": {
+      "semi": ["error", "always"],
+      "no-unused-vars": ["error", {"vars": "local"}],
+    },
+    "globals": {
+      "React": true
+    },
+    "env": {
+      "browser": true,
+      "commonjs": true,
+      "es6": true,
+      "mocha": true
+    }
+}

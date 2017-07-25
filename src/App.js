@@ -1,9 +1,11 @@
+/* eslint-disable */
 import React, { Component } from 'react';
+/* eslint-enable */
 import logo from './logo.svg';
 import './App.css';
 import Helper from './helper.js';
 
-let helper = new Helper()
+let helper = new Helper();
 
 class App extends Component {
   // constructor () {
@@ -12,11 +14,11 @@ class App extends Component {
   // }
 
   componentDidMount () {
-    let selectedWords = helper.getPartsOfSpeech()
-    .then((response => console.log(response)))
+    helper.getPartsOfSpeech()
+      .then(response => console.log(response));
   }
 
-  render() {
+  render () {
     return (
       <div className="App">
         <div className="App-header">
