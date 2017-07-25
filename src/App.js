@@ -6,10 +6,10 @@ import Helper from './helper.js';
 let helper = new Helper()
 
 class App extends Component {
-  constructor () {
-    super()
-    // this.helper = new Helper()
-  }
+  // constructor () {
+  //   super()
+  //   // this.helper = new Helper()
+  // }
 
   componentDidMount () {
     helper.distributeSelections('console this yo');
