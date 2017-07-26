@@ -2,6 +2,7 @@
 import React from 'react';
 import App from './App';
 /* eslint-enable */
+
 import ReactDOM from 'react-dom';
 
 it('renders without crashing', () => {

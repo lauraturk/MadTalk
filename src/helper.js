@@ -1,9 +1,8 @@
 
 export default class Helper {
-  
   async getTextSample () {
     let wordsData = await fetch('https://byob-madlib.herokuapp.com/api/v1/text_samples/5/words');
-    let textSampleData = await fetch('https://byob-madlib.herokuapp.com/api/v1/text_samples/5')
+    let textSampleData = await fetch('https://byob-madlib.herokuapp.com/api/v1/text_samples/5');
 
     let words = await wordsData.json();
     let textSample = await textSampleData.json();
@@ -11,7 +10,6 @@ export default class Helper {
   }
 
   distributeSelections (text) {
-    // const text = await this.getTextSample()
     let wordTallies = text.reduce((acc, wordObj) => {
       !acc.all[wordObj.type]
         ? acc.all[wordObj.type] = 1
@@ -42,7 +40,7 @@ export default class Helper {
   }
 
   getPartsOfSpeech (wordsArray) {
-    const totals =  this.distributeSelections(wordsArray);
+    const totals = this.distributeSelections(wordsArray);
 
     let adjArray = [];
     let nounArray = [];
