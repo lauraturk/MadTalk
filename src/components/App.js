@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 import { GameInputList } from './GameInputList';
 /* eslint-enable */
 
-import Helper from '../helper';
+import Helper from '../helpers/helper';
 
 let helper = new Helper();
 
