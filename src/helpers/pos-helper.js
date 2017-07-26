@@ -15,4 +15,4 @@ module.exports = {
   VBN: 'Verb, past participle',
   VBP: 'Verb, present tense You, I, or We',
   VBZ: 'Verb, present tense'
-}
+};
