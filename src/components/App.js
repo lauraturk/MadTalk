@@ -21,7 +21,6 @@ class App extends Component {
     helper.getTextSample()
       .then(response => {
         const selectedIndices = helper.getPartsOfSpeech(response.words);
-        console.log(selectedIndices);
         this.setState({
           textSample: response.textSample[0],
           words: response.words,

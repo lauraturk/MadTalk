@@ -6,7 +6,6 @@ import { GameInput } from './GameInput';
 export const GameInputList = ({selectedWordObj}) => {
   if (!Object.keys(selectedWordObj).length) { return <div></div>; }
 
-  console.log(selectedWordObj.selectedAdjs);
   let counter = 0;
   const gameInputArr = Object.keys(selectedWordObj).map(wordTypeArr => {
     return selectedWordObj[wordTypeArr].map(wordObj => {
@@ -17,7 +16,27 @@ export const GameInputList = ({selectedWordObj}) => {
     });
   });
 
+  const randomizeInputs = (inputArr) => {
+    // https://stackoverflow.com/questions/2450954/how-to-randomize-shuffle-a-javascript-array
+    let currentIndex = inputArr.length;
+    let tempValue = null;
+    let randomIndex = null;
+
+    while (currentIndex !== 0) {
+      randomIndex = Math.floor(Math.random() * currentIndex);
+      currentIndex -= 1;
+      tempValue = inputArr[currentIndex];
+      inputArr[currentIndex] = inputArr[randomIndex];
+      inputArr[randomIndex] = tempValue;
+    };
+    return inputArr;
+  };
+
+  let gameInputArrObjs = [];
+  gameInputArr.forEach(typeArr => gameInputArrObjs.push(...typeArr));
+  const randomizedInputArr = randomizeInputs(gameInputArrObjs);
+
   return (
-    <section id='game-input-container'>{ gameInputArr }</section>
+    <section id='game-input-container'>{ randomizedInputArr }</section>
   );
 };
