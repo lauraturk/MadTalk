@@ -4,7 +4,7 @@ module.exports = {
   JJS: 'Adjective, superlative',
   NN: 'singular noun',
   NNS: 'plural noun',
-  NNP: 'name of someone in the room',
+  NNP: 'Proper Noun',
   NNPS: 'name of a group of people',
   RB: 'Adverb',
   RBR: 'Adverb, comparative',
@@ -14,5 +14,5 @@ module.exports = {
   VBG: 'Verb ending in -ing',
   VBN: 'Verb, past participle',
   VBP: 'Verb, present tense You, I, or We',
-  VBZ: 'Verb, present tense',
+  VBZ: 'Verb, present tense'
 }
