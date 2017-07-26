@@ -3,7 +3,7 @@ import React from 'react';
 /* eslint-enable */
 
 export const GameInput = ({ wordInfo, inputNumber }) => {
-  // POS object helper here? update 'wordInfo.type' with common type word
+  // POS object helper here? update 'wordInfo.type' with common type word.
   return (
     <div className={`game-input-card card-${inputNumber}`} data-index={ wordInfo.index } data-type={ wordInfo.type }>
       <label>
