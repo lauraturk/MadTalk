@@ -10,14 +10,16 @@ export class GameInput extends Component {
     /*eslint-enable */
     this.state = {
       wordInput: '',
-      wordIndex: ''
+      wordIndex: '',
+      wordType: ''
     };
   }
 
   componentDidMount () {
     const { wordInfo } = this.props;
     this.setState({
-      wordIndex: wordInfo.index
+      wordIndex: wordInfo.index,
+      wordType: wordInfo.type
     });
   }
 
