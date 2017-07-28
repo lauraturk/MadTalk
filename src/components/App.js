@@ -1,7 +1,7 @@
 /* eslint-disable */
 import React, { Component } from 'react';
 import { GameInputList } from './GameInputList';
-import { GameOutput } from './GameOutput';
+import { GameOutputList } from './GameOutputList';
 /* eslint-enable */
 
 import Helper from '../helpers/helper';
@@ -21,11 +21,11 @@ class App extends Component {
 
   startNewGame () {
     helper.getTextSample()
-      .then(response => {
-        const selectedIndices = helper.getPartsOfSpeech(response.words);
+      .then(textSample => {
+        const selectedIndices = helper.getPartsOfSpeech(textSample.words);
         this.setState({
           // textSample: response.textSample[0],
-          textSample: this.tempTextSample(),
+          textSample: textSample,
           selectedWords: selectedIndices
         });
       });
@@ -66,7 +66,7 @@ class App extends Component {
         </section>
         <GameInputList selectedWordObj={ this.state.selectedWords }
           handleGameInputs={ this.handleGameInputs.bind(this) }/>
-        <GameOutput textSample={ this.state.textSample }
+        <GameOutputList textSample={ this.state.textSample }
           gameInputWords={ this.state.gameInputWords }/>
       </section>
     );

@@ -37,7 +37,12 @@ export const GameInputList = ({ selectedWordObj, handleGameInputs }) => {
   gameInputArr.forEach(typeArr => gameInputArrObjs.push(...typeArr));
   // const randomizedInputArr = randomizeInputs(gameInputArrObjs);
 
+  console.log(gameInputArrObjs);
+
   return (
-    <section id='game-input-container'>{ gameInputArrObjs }</section>
+    <section id='game-input-container'>
+      <div id='game-input-list'>{ gameInputArrObjs }</div>
+      <button id='submit-inputs-btn'>Submit</button>
+    </section>
   );
 };
