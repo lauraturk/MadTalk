@@ -5,6 +5,7 @@ import * as icons from '../assets/icons';
 
 export const SpeechSynth = (props) => {
   const { text } = props;
+  let icon = icons.speakerOn;
 
   const createUtterance = (utterance) => {
     const defaults = {
@@ -32,9 +33,10 @@ export const SpeechSynth = (props) => {
   const endSpeak = () => {
     const { onSynthEnd } = props;
     onSynthEnd();
+    return icon = icons.speakerOff;  /* not working */
   };
 
   speak(createUtterance(text));
 
-  return (<div>{icons.speakerOn}</div>);
+  return (<div>{icon}</div>);
 };
