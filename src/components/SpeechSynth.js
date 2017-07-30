@@ -3,17 +3,10 @@ import React, { Component } from 'react';
 import * as icons from '../assets/icons';
 /* eslint-enable */
 
-export class SpeechSynth extends Component {
-  constructor (props) {
-    super();
-    this.state = {
-      start: false,
-      playing: false
-    };
-    this.speech = this.createUtterance(props.text);
-  }
+export const SpeechSynth = (props) => {
+  const { text } = props;
 
-  createUtterance (utterance) {
+  const createUtterance = (utterance) => {
     const defaults = {
       volume: 1,
       rate: 1,
@@ -23,30 +16,25 @@ export class SpeechSynth extends Component {
 
     let speech = new SpeechSynthesisUtterance(utterance);
 
+    speech.addEventListener('end', () => {
+      return endSpeak();
+    });
+
     Object.assign(speech, defaults);
 
     return speech;
-  }
+  };
 
-  speak () {
-    window.speechSynthesis.speak(this.speech);
-  }
+  const speak = (speech) => {
+    window.speechSynthesis.speak(speech);
+  };
 
-  endSpeak () {
-    const { onSynthEnd } = this.props;
+  const endSpeak = () => {
+    const { onSynthEnd } = props;
     onSynthEnd();
-  }
+  };
 
-  componentDidMount () {
-    this.speak();
-    this.speech.addEventListener('end', () => {
-      return this.endSpeak();
-    });
-  }
+  speak(createUtterance(text));
 
-  render () {
-    return (
-      <div>{icons.speakerOn}</div>
-    );
-  }
+  return (<div>{icons.speakerOn}</div>);
 };
