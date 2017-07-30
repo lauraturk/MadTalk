@@ -33,7 +33,6 @@ class App extends Component {
       });
   }
 
-
   handleGameInputs (wordInputs) {
     const currentGameInputWords = this.state.gameInputWords;
 
@@ -65,7 +64,8 @@ class App extends Component {
           handleGameInputs={ this.handleGameInputs.bind(this) }
           speechEnabled={this.state.speechEnabled}/>
         <GameOutputList textSample={ this.state.textSample }
-          gameInputWords={ this.state.gameInputWords }/>
+          gameInputWords={ this.state.gameInputWords }
+          speechEnabled={this.state.speechEnabled}/>
       </section>
     );
   }

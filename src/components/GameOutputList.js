@@ -1,9 +1,10 @@
 /* eslint-disable */
 import React from 'react';
 import { GameOutput } from './GameOutput';
+import { SpeechSynth } from './SpeechSynth';
 /* eslint-enable */
 
-export const GameOutputList = ({ textSample, gameInputWords }) => {
+export const GameOutputList = ({ textSample, gameInputWords, speechEnabled }) => {
   if (!textSample.textSample) { return <div></div>; }
   let indexedTextSample = textSample.textSample[0].body.split(' ');
   let punctuationArr = ["'", ',', '.', '?', '!', '-', '$', '&', '(', ')', 's', 't', 'nt', 'd', 've'];
@@ -25,11 +26,18 @@ export const GameOutputList = ({ textSample, gameInputWords }) => {
       wordItem={ word }/>;
   });
 
+  const outputSynthEnd = () => {
+    console.log('Put something here to tell user the reading is done');
+  };
+
   // console.log(joinedWords);
   // console.log(indexedTextSample);
   // console.log(wordsWithHTML);
 
   return (
-    <section className='game-output-container'>{ wordsWithHTML }</section>
+    <section className='game-output-container'>
+      {!speechEnabled ? null : <SpeechSynth text={ joinedWords } onSynthEnd={outputSynthEnd.bind(this)} />}
+      { wordsWithHTML }
+    </section>
   );
 };
