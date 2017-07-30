@@ -1,14 +1,9 @@
 /* eslint-disable */
 import React, { Component } from 'react';
+import { SpeechSynth } from './SpeechSynth';
+import { SpeechRec } from './SpeechRec';
 /* eslint-enable */
 import POShelper from '../helpers/pos-helper';
-// import { speakMe } from './SpeechSynthesis';
-import { startSpeechRec } from './SpeechRecognition';
-
-// const SpeechGrammarList = SpeechGrammarList || webkitSpeechGrammarList;
-// const SpeechRecognitionEvent = SpeechRecognitionEvent || webkitSpeechRecognitionEvent;
-
-// const speechRecognitionList = new SpeechGrammarList();
 
 export class GameInput extends Component {
   constructor () {
@@ -18,7 +13,9 @@ export class GameInput extends Component {
     this.state = {
       wordInput: '',
       wordIndex: '',
-      wordType: ''
+      wordType: '',
+      play: false,
+      listen: false
     };
   }
 
@@ -35,27 +32,46 @@ export class GameInput extends Component {
     handleGameInputs(this.state);
   }
 
-  startSpeechGame (wordPrompt) {
-    console.log(wordPrompt, 'start talking!');
-    // speakMe(wordPrompt)
-    startSpeechRec();
+  onSynthEnd () {
+    console.log('on synth end, are we here?');
+    this.setState({
+      play: !this.state.play,
+      listen: !this.state.listen
+    });
+  }
+
+  onSpeechEnd () {
+    console.log('on speech end');
+    this.setState({
+      listen: !this.state.listen
+    });
+  }
+
+  printValue (word, confidence) {
+    console.log(confidence, 'confidence in print value');
+    this.setState({
+      wordInput: word
+    });
   }
 
   render () {
     const { wordInfo, inputNumber, speechEnabled } = this.props;
     let wordPrompt = POShelper[wordInfo.type];
-    console.log(speechEnabled);
 
     return (
       <div className={`game-input-card card-${inputNumber}`}
         data-index={ wordInfo.index }
         data-type={ wordInfo.type }>
+        {!this.state.play ? null : <SpeechSynth text={wordPrompt} onSynthEnd={this.onSynthEnd.bind(this)} /> }
+        {!this.state.listen ? null : <SpeechRec printValue={this.printValue.bind(this)} onSpeechEnd={this.onSpeechEnd.bind(this)}/>}
         <label>
           <input className='selected-word-input'
             placeholder={ wordPrompt }
             value={ this.state.wordInput }
             onChange={(e) => this.setState({ wordInput: e.target.value })}
-            onFocus={!speechEnabled ? null : () => this.startSpeechGame(wordPrompt)}
+            onFocus={!speechEnabled ? null : () => {
+              this.setState({ play: !this.state.play });
+            }}
             onBlur={() => this.sendUpGameInputs()}/>
           <h4>{ wordPrompt } ({ wordInfo.word })</h4>
         </label>
