@@ -25,9 +25,9 @@ export const GameOutputList = ({ textSample, gameInputWords }) => {
       wordItem={ word }/>;
   });
 
-  console.log(joinedWords);
-  console.log(indexedTextSample);
-  console.log(wordsWithHTML);
+  // console.log(joinedWords);
+  // console.log(indexedTextSample);
+  // console.log(wordsWithHTML);
 
   return (
     <section className='game-output-container'>{ wordsWithHTML }</section>
