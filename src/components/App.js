@@ -2,7 +2,9 @@
 import React, { Component } from 'react';
 import { GameInputList } from './GameInputList';
 import { GameOutputList } from './GameOutputList';
-import * as icons from '../assets/icons'
+
+import { Link, Route } from 'react-router-dom';
+import * as icons from '../assets/icons';
 /* eslint-enable */
 
 import Helper from '../helpers/helper';
@@ -58,14 +60,14 @@ class App extends Component {
         <section className="text-source-container">
           <h2>new route: (?) section to select text source</h2>
           <button className="App-speechBtn" onClick={() => this.setState({speechEnabled: !this.state.speechEnabled})}>{!this.state.speechEnabled ? icons.micOff : icons.micOn }</button>
-          <button className="App-startBtn" onClick={() => this.startNewGame()}>start game</button>
+          <Link to = '/gameinput' className="App-startBtn" onClick={() => this.startNewGame()}>start game</Link>
         </section>
-        <GameInputList selectedWordObj={ this.state.selectedWords }
+        <Route path={'/gameinput'} render={() => <GameInputList selectedWordObj={ this.state.selectedWords }
           handleGameInputs={ this.handleGameInputs.bind(this) }
-          speechEnabled={this.state.speechEnabled}/>
-        <GameOutputList textSample={ this.state.textSample }
+          speechEnabled={this.state.speechEnabled}/>}/>
+        <Route path={'/gameoutput'} render={() => <GameOutputList textSample={ this.state.textSample }
           gameInputWords={ this.state.gameInputWords }
-          speechEnabled={this.state.speechEnabled}/>
+          speechEnabled={this.state.speechEnabled}/>}/>
       </section>
     );
   }
