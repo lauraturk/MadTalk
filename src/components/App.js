@@ -55,10 +55,11 @@ class App extends Component {
     return (
       <section className="App">
         <section className="text-source-container">
-          <h2>Hit Start Game to begin.</h2>
-          <h2>new route: (?) section to select text source</h2>
-          <button className="App-speechBtn" onClick={() => this.setState({speechEnabled: !this.state.speechEnabled})}>{!this.state.speechEnabled ? icons.micOff : icons.micOn }</button>
-          <Link to = '/gameinput' className="App-startBtn" onClick={() => this.startNewGame()}>start game</Link>
+          <header>
+            <h1>MADTALK</h1>
+            <button className="App-speechBtn" onClick={() => this.setState({speechEnabled: !this.state.speechEnabled})}>{!this.state.speechEnabled ? icons.micOff : icons.micOn }</button>
+            <Link to = '/gameinput' className="App-startBtn" onClick={() => this.startNewGame()}>start game</Link>
+          </header>
         </section>
         <Route path={'/gameinput'} render={() => <GameInputList selectedWordObj={ this.state.selectedWords }
           handleGameInputs={ this.handleGameInputs.bind(this) }
