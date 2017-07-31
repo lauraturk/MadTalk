@@ -3,7 +3,7 @@ import React from 'react';
 import { GameInput } from './GameInput';
 /* eslint-enable */
 
-export const GameInputList = ({ selectedWordObj, handleGameInputs, speechEnabled }) => {
+export const GameInputList = ({ selectedWordObj, handleGameInputs, speechEnabled, handleAllInputs }) => {
   if (!Object.keys(selectedWordObj).length) { return <div></div>; }
 
   let counter = 0;
@@ -43,7 +43,7 @@ export const GameInputList = ({ selectedWordObj, handleGameInputs, speechEnabled
   return (
     <section id='game-input-container'>
       <div id='game-input-list'>{ gameInputArrObjs }</div>
-      <button id='submit-inputs-btn'>Submit</button>
+      <button id='submit-inputs-btn' onClick = {() => handleAllInputs()}>Submit</button>
     </section>
   );
 };

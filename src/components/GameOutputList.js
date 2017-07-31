@@ -5,6 +5,7 @@ import { SpeechSynth } from './SpeechSynth';
 /* eslint-enable */
 
 export const GameOutputList = ({ textSample, gameInputWords, speechEnabled }) => {
+  console.log(gameInputWords);
   if (!textSample.textSample) { return <div></div>; }
   let indexedTextSample = textSample.textSample[0].body.split(' ');
   let punctuationArr = ["'", ',', '.', '?', '!', '-', '$', '&', '(', ')', 's', 't', 'nt', 'd', 've'];

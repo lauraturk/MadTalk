@@ -16,6 +16,7 @@ class App extends Component {
       textSample: '',
       selectedWords: [],
       gameInputWords: [],
+      stagingInputs: [],
       isLoading: false,
       speechEnabled: false
     };
@@ -34,11 +35,9 @@ class App extends Component {
 
   handleGameInputs (wordInputs) {
     const currentGameInputWords = this.state.gameInputWords;
-
     const newGameInputWords = currentGameInputWords.filter((gameInputWord) => {
       return gameInputWord.wordIndex !== wordInputs.wordIndex;
     });
-
     if (wordInputs.wordInput !== '') {
       newGameInputWords.push({
         userInputWord: wordInputs.wordInput,
@@ -46,15 +45,22 @@ class App extends Component {
         wordType: wordInputs.wordType
       });
     }
+    // this.state.stagingInputs.push(newGameInputWords);
+    // console.log(this.state.stagingInputs);
     this.setState({
-      gameInputWords: newGameInputWords
+      stagingInputs: newGameInputWords
+    });
+  }
+
+  handleAllInputs () {
+    this.setState({
+      gameInputWords: this.state.stagingInputs,
+      stagingInputs: []
     });
   }
 
   renderComponents () {
-    console.log(this.state.gameInputWords);
     if (this.state.textSample === '' && this.state.selectedWords.length === 0) {
-      console.log('trigger button start');
       return (
         <section className="text-source-container">
           <h2>Hit Start Game to begin.</h2>
@@ -63,13 +69,12 @@ class App extends Component {
         </section>
       );
     } else if (this.state.gameInputWords.length === 0 && this.state.textSample !== '' && this.state.selectedWords.length !== 0) {
-      console.log('trigger text input');
+      // console.log('trigger text input');
       return (
         <GameInputList selectedWordObj={ this.state.selectedWords }
-          handleGameInputs={ this.handleGameInputs.bind(this) }/>
+          handleGameInputs={ this.handleGameInputs.bind(this) } handleAllInputs = { this.handleAllInputs.bind(this)}/>
       );
-    } else {
-      console.log('display output');
+    } else if (this.state.gameInputWords.length !== 0) {
       return (
         <GameOutputList textSample={ this.state.textSample }
           gameInputWords={ this.state.gameInputWords }/>
@@ -80,8 +85,10 @@ class App extends Component {
   render () {
     return (
       <section className="App">
-        <header> MADTALK</header>
-        <button className="App-speechBtn" onClick={() => this.setState({speechEnabled: !this.state.speechEnabled})}>{!this.state.speechEnabled ? icons.micOff : icons.micOn }</button>
+        <header>
+          <h1>MADTALK</h1>
+          <button className="App-speechBtn" onClick={() => this.setState({speechEnabled: !this.state.speechEnabled})}>{!this.state.speechEnabled ? icons.micOff : icons.micOn }</button>
+        </header>
         {this.renderComponents()}
       </section>
     );
