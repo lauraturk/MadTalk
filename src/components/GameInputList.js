@@ -3,7 +3,7 @@ import React from 'react';
 import { GameInput } from './GameInput';
 /* eslint-enable */
 
-export const GameInputList = ({ selectedWordObj, handleGameInputs }) => {
+export const GameInputList = ({ selectedWordObj, handleGameInputs, speechEnabled }) => {
   if (!Object.keys(selectedWordObj).length) { return <div></div>; }
 
   let counter = 0;
@@ -13,7 +13,8 @@ export const GameInputList = ({ selectedWordObj, handleGameInputs }) => {
       return <GameInput key={ counter }
         wordInfo={ wordObj }
         inputNumber={ counter }
-        handleGameInputs={ handleGameInputs } />;
+        handleGameInputs={ handleGameInputs }
+        speechEnabled={speechEnabled}/>;
     });
   });
 
@@ -37,7 +38,7 @@ export const GameInputList = ({ selectedWordObj, handleGameInputs }) => {
   gameInputArr.forEach(typeArr => gameInputArrObjs.push(...typeArr));
   // const randomizedInputArr = randomizeInputs(gameInputArrObjs);
 
-  console.log(gameInputArrObjs);
+  // console.log(gameInputArrObjs);
 
   return (
     <section id='game-input-container'>

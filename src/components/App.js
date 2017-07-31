@@ -2,6 +2,7 @@
 import React, { Component } from 'react';
 import { GameInputList } from './GameInputList';
 import { GameOutputList } from './GameOutputList';
+import * as icons from '../assets/icons'
 /* eslint-enable */
 
 import Helper from '../helpers/helper';
@@ -15,7 +16,8 @@ class App extends Component {
       textSample: '',
       selectedWords: [],
       gameInputWords: [],
-      isLoading: false
+      isLoading: false,
+      speechEnabled: false
     };
   }
 
@@ -56,6 +58,7 @@ class App extends Component {
       return (
         <section className="text-source-container">
           <h2>Hit Start Game to begin.</h2>
+          <h2>new route: (?) section to select text source</h2>
           <button className="App-startBtn" onClick={() => this.startNewGame()}>start game</button>
         </section>
       );
@@ -78,6 +81,7 @@ class App extends Component {
     return (
       <section className="App">
         <header> MADTALK</header>
+        <button className="App-speechBtn" onClick={() => this.setState({speechEnabled: !this.state.speechEnabled})}>{!this.state.speechEnabled ? icons.micOff : icons.micOn }</button>
         {this.renderComponents()}
       </section>
     );
