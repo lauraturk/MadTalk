@@ -48,14 +48,7 @@ class App extends Component {
     // this.state.stagingInputs.push(newGameInputWords);
     // console.log(this.state.stagingInputs);
     this.setState({
-      stagingInputs: newGameInputWords
-    });
-  }
-
-  handleAllInputs () {
-    this.setState({
-      gameInputWords: this.state.stagingInputs,
-      stagingInputs: []
+      gameInputWords: newGameInputWords
     });
   }
 
