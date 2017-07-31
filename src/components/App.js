@@ -28,7 +28,6 @@ class App extends Component {
       .then(textSample => {
         const selectedIndices = helper.getPartsOfSpeech(textSample.words);
         this.setState({
-          // textSample: response.textSample[0],
           textSample: textSample,
           selectedWords: selectedIndices
         });
@@ -37,11 +36,9 @@ class App extends Component {
 
   handleGameInputs (wordInputs) {
     const currentGameInputWords = this.state.gameInputWords;
-
     const newGameInputWords = currentGameInputWords.filter((gameInputWord) => {
       return gameInputWord.wordIndex !== wordInputs.wordIndex;
     });
-
     if (wordInputs.wordInput !== '') {
       newGameInputWords.push({
         userInputWord: wordInputs.wordInput,
@@ -58,6 +55,7 @@ class App extends Component {
     return (
       <section className="App">
         <section className="text-source-container">
+          <h2>Hit Start Game to begin.</h2>
           <h2>new route: (?) section to select text source</h2>
           <button className="App-speechBtn" onClick={() => this.setState({speechEnabled: !this.state.speechEnabled})}>{!this.state.speechEnabled ? icons.micOff : icons.micOn }</button>
           <Link to = '/gameinput' className="App-startBtn" onClick={() => this.startNewGame()}>start game</Link>
