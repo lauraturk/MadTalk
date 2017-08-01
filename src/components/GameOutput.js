@@ -10,11 +10,11 @@ export const GameOutput = ({ outputWordSection }) => {
     const outputWordType = wordAndWordType.split('%')[1];
     const wordPrompt = POShelper[outputWordType];
 
-    return <div className='game-output-user-word'>
-      <div>{ outputWord }</div>
-      <h5 className='game-output-word-type'>{ wordPrompt }</h5>
-    </div>;
+    return <span className='GameOutput-wordContainer'>
+      <h4 className='GameOutput-word'>{ outputWord.toUpperCase() }</h4>
+      <h5 className='GameOutput-type'>{ wordPrompt }</h5>
+    </span>;
   } else {
-    return <div className='game-output-word'>{ outputWordSection }</div>;
+    return <h4 className='GameOutput-text'>{ outputWordSection }</h4>;
   }
 };
