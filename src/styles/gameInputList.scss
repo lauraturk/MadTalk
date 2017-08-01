@@ -1,10 +1,46 @@
+@import './variables.scss';
 
-#game-input-container {
-  border: 1px solid magenta;
+#game-input-list-container {
 }
 
 #game-input-list {
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-between;
+  justify-content: space-around;
+}
+
+#game-input-list a{
+  margin-top: 20px;
+}
+
+#submit-inputs-btn{
+  display: inline-block;
+  font-family: $general-title;
+  text-decoration: none;
+  margin-top: 15px;
+  padding: 12px;
+  padding-left: 12%;
+  padding-right: 12%;
+  font-size: 19px;
+  background-color: $general-background;
+  color: #efefef;
+  margin-bottom: 10%;
+}
+
+#submit-inputs-btn:hover{
+  background-color: #444;
+}
+
+#submit-inputs-btn:hover{
+  text-decoration: underline;
+}
+
+@media screen and (max-width: 360px){
+  #submit-inputs-btn{
+    padding: 25px;
+    padding-left: 25%;
+    padding-right: 25%;
+    font-size: 21px;
+
+  }
 }

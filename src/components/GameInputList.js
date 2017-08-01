@@ -23,9 +23,9 @@ export const GameInputList = ({ selectedWordObj, handleGameInputs, speechEnabled
   gameInputArr.forEach(typeArr => gameInputArrObjs.push(...typeArr));
 
   return (
-    <section id='game-input-container'>
+    <section id='game-input-list-container'>
       <div id='game-input-list'>{ gameInputArrObjs }</div>
-      <Link to='/gameoutput' id='submit-inputs-btn'>Submit</Link>
+      <Link to='/gameoutput' id='submit-inputs-btn'>submit</Link>
     </section>
   );
 };
