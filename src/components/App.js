@@ -64,13 +64,11 @@ class App extends Component {
   render () {
     return (
       <section className="App">
-        <section className="text-source-container">
-          <header>
-            <h1>MADTALK</h1>
-            <button className="App-speechBtn" onClick={() => this.setState({speechEnabled: !this.state.speechEnabled})}>{!this.state.speechEnabled ? icons.micOff : icons.micOn }</button>
-            <Link to = '/gameinput' className="App-startBtn" onClick={() => this.startNewGame()}>new game</Link>
-          </header>
-        </section>
+        <footer>
+          <h1>MADTALK</h1>
+          <button className="App-speechBtn" onClick={() => this.setState({speechEnabled: !this.state.speechEnabled})}>{!this.state.speechEnabled ? icons.micOff : icons.micOn }</button>
+          <Link to = '/gameinput' className="App-startBtn" onClick={() => this.startNewGame()}>new game</Link>
+        </footer>
         <div id='App-fabioGIF'>{ this.displayLoadingGIF() }</div>
         <Route path={'/gameinput'} render={() => <GameInputList selectedWordObj={ this.state.selectedWords }
           handleGameInputs={ this.handleGameInputs.bind(this) }

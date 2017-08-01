@@ -31,10 +31,12 @@ export const GameOutputList = ({ textSample, gameInputWords, speechEnabled }) =>
     console.log('Put something here to tell user the reading is done');
   };
 
+  let randomVideo = Math.floor(Math.random() * (24 - 0)) + 1;
+
   return (
     <section className='GameOutput-container'>
-      <video loop muted autoPlay className="video">
-        <source src = "../assets/video_bg/gif18.mp4" type="video/mp4"/>
+      <video loop muted autoPlay className='video'>
+        <source src={`/video_bg/clip${randomVideo}.mp4`} type="video/mp4"></source>
       </video>
       <div className='GameOutput-textContainer'>
         {!speechEnabled ? null : <SpeechSynth text={ joinedWords } onSynthEnd={outputSynthEnd.bind(this)} />}

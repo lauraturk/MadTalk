@@ -1,25 +1,27 @@
 @import './variables.scss';
 
 .GameOutput-textContainer {
+  font-size: 14px;
   position: absolute;
-  top: 10%;
-  left: 60%;
+  top: -1%;
+  left: 65%;
   transform: translateX(-50%);
-  z-index:1;
-  width: 70%;
+  z-index:3;
+  width: 60%;
   margin: 20px;
   padding: 15px;
-  background: $general-secondary-rgba;
+  background: $general-word-rgba;
   border-radius: 25px;
+  box-shadow: 0px 0px 4px $general-background;
 }
 
 .GameOutput-textContainer:after {
   position: absolute;
   content: '';
   top: 100%;
-  left: 10%;
+  left: 35%;
   border-right: 45px solid transparent;
-  border-top: 90px solid $general-secondary-rgba;
+  border-top: 55px solid $general-word-rgba;
   border-left: 20px solid transparent;
 }
 
@@ -46,5 +48,5 @@
 }
 
 .GameOutput-text {
-  line-height: 45px;
+  line-height: 30px;
 }

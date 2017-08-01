@@ -1,9 +1,18 @@
 @import './variables.scss';
 
 .game-input-card {
+  width: 20%;
   margin: 10px;
+  margin-top: 30px;
   padding: 45px 5px 0 5px;
-  box-shadow: 0px 0px 3px $general-background
+  box-shadow: 0px 0px 3px $general-background;
+  background-color: $general-secondary-rgba;
+  height: 125px;
+}
+
+input{
+  font-size: 15px;
+  background-color: $general-secondary;
 }
 
 .game-input-card h4{

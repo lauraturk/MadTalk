@@ -1,18 +1,18 @@
 
 .GameOutput-container {
-  background: url(http://68.media.tumblr.com/0e8694667bdf4da850044a7fd48a71f8/tumblr_inline_n4ugknFYXs1r9r6ez.jpg);
+  background-image: url('https://s-media-cache-ak0.pinimg.com/originals/7e/83/9b/7e839b71335bbaa071d1c202119e0c7b.jpg');
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center center;
   height: calc(100vh - 125px);
+  z-index: 0;
   position: relative;
 }
 
-.GameOutput-holder{
-  width: 100%;
-  z-index: 0;
-}
-
-.video{
-  width: 100%;
+.video {
+  border:1px double #eee;
+  margin-top: 15%;
+  margin-right: 25%;
+  z-index: 2;
+  width: 65%;
 }
