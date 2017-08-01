@@ -8,7 +8,8 @@ deployment:
   staging:
     branch: staging
     heroku:
-      appname: fast-forest-69950
+      appname: mysterious-earth-87212
+
   production:
     branch: master
     heroku:
