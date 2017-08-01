@@ -37,7 +37,8 @@ export const SpeechSynth = (props) => {
 
   const turnOffSpeech = () => {
     window.speechSynthesis.cancel();
-    return icon = icons.speakerOff;  /* not working */
+    icon = icons.speakerOff; /* not working */
+    return icon;
   };
 
   speak(createUtterance(text));
