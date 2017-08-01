@@ -1,0 +1,15 @@
+machine:
+  timezone:
+    America/Denver
+  node:
+    version: 7.10.0
+
+deployment:
+  staging:
+    branch: staging
+    heroku:
+      appname: fast-forest-69950
+  production:
+    branch: master
+    heroku:
+      appname: madtalk
