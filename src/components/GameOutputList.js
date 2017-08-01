@@ -2,7 +2,7 @@
 import React from 'react';
 import { GameOutput } from './GameOutput';
 import { SpeechSynth } from './SpeechSynth';
-/* eslint-enable */
+/* eslint-enable */ 
 
 export const GameOutputList = ({ textSample, gameInputWords, speechEnabled }) => {
   if (!textSample.textSample) { return <div></div>; }
