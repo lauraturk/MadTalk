@@ -1,8 +1,19 @@
+/* eslint-disable */
 import React from 'react';
+import App from './components/App';
+import {BrowserRouter as Router} from 'react-router-dom';
+/* eslint-enable */
 import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
+
+import createHistory from 'history/createBrowserHistory';
+
+import './styles/app.css';
 import registerServiceWorker from './registerServiceWorker';
 
-ReactDOM.render(<App />, document.getElementById('root'));
+const history = createHistory();
+
+ReactDOM.render(
+  <Router history={history}>
+    <App />
+  </Router>, document.getElementById('root'));
 registerServiceWorker();
