@@ -1,0 +1,21 @@
+
+.game-output-container {
+  // display: flex;
+}
+
+.game-output-user-word, .game-output-word {
+  display: inline-block;
+}
+
+.game-output-user-word {
+  margin: 0 4px;
+}
+
+.game-output-word-type {
+  padding: 4px 10px 0 10px;
+  border-top: 1px solid black;
+}
+
+.game-output-word {
+  line-height: 35px;
+}
