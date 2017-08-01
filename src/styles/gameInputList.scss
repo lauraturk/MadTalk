@@ -19,11 +19,28 @@
   text-decoration: none;
   margin-top: 15px;
   padding: 12px;
+  padding-left: 12%;
+  padding-right: 12%;
   font-size: 19px;
   background-color: $general-background;
   color: #efefef;
+  margin-bottom: 10%;
+}
+
+#submit-inputs-btn:hover{
+  background-color: #444;
 }
 
 #submit-inputs-btn:hover{
   text-decoration: underline;
+}
+
+@media screen and (max-width: 360px){
+  #submit-inputs-btn{
+    padding: 25px;
+    padding-left: 25%;
+    padding-right: 25%;
+    font-size: 21px;
+
+  }
 }

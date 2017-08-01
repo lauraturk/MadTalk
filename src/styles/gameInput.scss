@@ -7,12 +7,29 @@
   padding: 45px 5px 0 5px;
   box-shadow: 0px 0px 3px $general-background;
   background-color: $general-secondary-rgba;
-  height: 125px;
+  height: 150px;
+}
+
+.game-input-card svg path{
+  fill: $general-primary;
+}
+
+.game-input-card div{
+  margin-bottom: 20px;
 }
 
 input{
+  width: 75%;
   font-size: 15px;
-  background-color: $general-secondary;
+  background-color: rgba(250, 250, 245, 0);
+}
+
+hr{
+  margin-left: auto;
+  margin-right: auto;
+  width: 55%;
+  color: #888;
+  border: 1px solid #888;
 }
 
 .game-input-card h4{
@@ -28,10 +45,14 @@ input{
 }
 
 .selected-word-input {
+  text-align: center;
   border: none;
   outline: none;
   padding: 5px;
-  margin: 5px;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  margin-left: auto;
+  margin-right: auto;
   font-size: 16px;
 }
 
@@ -54,5 +75,23 @@ input{
   }
   100% {
     width: 80%
+  }
+}
+
+@media screen and (max-width: 768px){
+  .game-input-card {
+    width: 80%;
+    height: auto;
+  }
+}
+
+@media screen and (max-width: 360px){
+  .game-input-card {
+    width: 80%;
+    height: 125px;
+  }
+
+  input{
+    height: 44px;
   }
 }

@@ -122,12 +122,13 @@ export class GameInput extends Component {
         data-type={ wordInfo.type }
         onClick={!speechEnabled ? null : () => this.onInputFocus()}>
         <label>
-          <input className={this.inputStyle()}
+          <input className='selected-word-input'
             placeholder={ wordPrompt }
             value={ this.state.wordInput }
             onChange={(e) => this.setState({ wordInput: e.target.value })}
             onBlur={() => this.sendUpGameInputs()}
             onFocus={!speechEnabled ? null : () => this.onInputFocus()} />
+          <hr className = {this.inputStyle()}></hr>
           <h4>{ wordPrompt }</h4>
           {!this.state.play ? null : <SpeechSynth text={wordPrompt}
             onSynthEnd={this.onSynthEnd.bind(this)} /> }

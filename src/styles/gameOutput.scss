@@ -50,3 +50,44 @@
 .GameOutput-text {
   line-height: 30px;
 }
+
+@media screen and (max-width: 900px){
+  .GameOutput-textContainer {
+    font-size: 13px;
+    top: -1%;
+    left: 55%;
+    width: 70%;
+  }
+  .GameOutput-textContainer:after{
+    left: 45%;
+    border-right: 45px solid transparent;
+    border-top: 35px solid $general-word-rgba;
+    border-left: 20px solid transparent;
+  }
+}
+
+@media screen and (max-width: 768px){
+  .GameOutput-textContainer:before {
+    position: absolute;
+    content: '';
+    top: -55px;
+    left: 75%;
+    border-right: 45px solid transparent;
+    border-bottom: 55px solid $general-word-rgba;
+    border-left: 20px solid transparent;
+  }
+
+  .GameOutput-textContainer {
+    width: 80%;
+    position: static;
+    margin-left: auto;
+    margin-right: auto;
+    top: 0;
+    left: 0;
+    transform: translateX(0);
+  }
+
+  .GameOutput-textContainer:after {
+    display: none;
+  }
+}
