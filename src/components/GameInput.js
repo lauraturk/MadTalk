@@ -32,13 +32,27 @@ export class GameInput extends Component {
     handleGameInputs(this.state);
   }
 
+  onInputFocus () {
+    if (!this.state.play) {
+      this.setState({
+        play: true
+      });
+    }
+  }
+
   onSynthEnd () {
-    console.log('on synth end, are we here?');
     this.setState({
       play: !this.state.play,
       listen: !this.state.listen
     });
   }
+
+  // onSpeechStart () {
+  //   console.log('onSpeechStart listening');
+  //   this.inputStyle = {
+  //     'borderBottom': '4px solid blue'
+  //   };
+  // }
 
   onSpeechEnd () {
     console.log('on speech end');
@@ -54,26 +68,41 @@ export class GameInput extends Component {
     });
   }
 
+  listeningStyle () {
+    if (this.state.listen && this.state.wordInput === '') {
+      return {'boxShadow': '0 0 20px #61BFCC'};
+    }
+  }
+
+  inputStyle () {
+    if (this.state.listen && this.state.wordInput === '') {
+      return 'selected-word-input selected-word-input_listening';
+    }
+    return 'selected-word-input';
+  }
+
   render () {
     const { wordInfo, inputNumber, speechEnabled } = this.props;
     let wordPrompt = POShelper[wordInfo.type];
 
     return (
       <div className={`game-input-card card-${inputNumber}`}
+        style={this.listeningStyle()}
         data-index={ wordInfo.index }
-        data-type={ wordInfo.type }>
-        {!this.state.play ? null : <SpeechSynth text={wordPrompt} onSynthEnd={this.onSynthEnd.bind(this)} /> }
-        {!this.state.listen ? null : <SpeechRec printValue={this.printValue.bind(this)} onSpeechEnd={this.onSpeechEnd.bind(this)}/>}
+        data-type={ wordInfo.type }
+        onClick={!speechEnabled ? null : () => this.onInputFocus()}>
         <label>
-          <input className='selected-word-input'
+          <h4>{ wordPrompt }</h4>
+          <input className={this.inputStyle()}
             placeholder={ wordPrompt }
             value={ this.state.wordInput }
             onChange={(e) => this.setState({ wordInput: e.target.value })}
-            onFocus={!speechEnabled ? null : () => {
-              this.setState({ play: !this.state.play });
-            }}
-            onBlur={() => this.sendUpGameInputs()}/>
-          <h4>{ wordPrompt } ({ wordInfo.word })</h4>
+            onBlur={() => this.sendUpGameInputs()}
+            onFocus={!speechEnabled ? null : () => this.onInputFocus()} />
+          {!this.state.play ? null : <SpeechSynth text={wordPrompt}
+            onSynthEnd={this.onSynthEnd.bind(this)} /> }
+          {!this.state.listen ? null : <SpeechRec printValue={this.printValue.bind(this)}
+            onSpeechEnd={this.onSpeechEnd.bind(this)}/>}
         </label>
       </div>
     );

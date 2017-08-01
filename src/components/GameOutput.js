@@ -1,7 +1,6 @@
 /* eslint-disable */
 import React from 'react';
 /* eslint-enable */
-import POShelper from '../helpers/pos-helper';
 
 export const GameOutput = ({ outputWordSection }) => {
   if (outputWordSection.charAt(0) === '#') {
