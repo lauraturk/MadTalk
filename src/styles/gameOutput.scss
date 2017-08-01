@@ -1,0 +1,47 @@
+@import './variables.scss';
+
+.GameOutput-textContainer {
+  position: relative;
+  width: 70%;
+  float: right;
+  margin: 20px;
+  padding: 15px;
+  background: $general-secondary-rgba;
+  border-radius: 25px;
+}
+
+.GameOutput-textContainer:after {
+  position: absolute;
+  content: '';
+  top: 100%;
+  left: 10%;
+  border-right: 45px solid transparent;
+  border-top: 90px solid $general-secondary-rgba;
+  border-left: 20px solid transparent;
+}
+
+.GameOutput-wordContainer {
+  display: inline-flex;
+  flex-direction: column;
+  margin: 0 4px;
+}
+
+.GameOutput-word, .GameOutput-type, .GameOutput-text {
+  display: inline;
+}
+
+.GameOutput-word {
+  color: $general-primary;
+  margin: 0;
+}
+
+.GameOutput-type {
+  padding: 4px 10px 0 10px;
+  border-top: 1px solid $general-background;
+  color: $general-background;
+  margin: 0;
+}
+
+.GameOutput-text {
+  line-height: 45px;
+}

@@ -1,0 +1,22 @@
+{
+    "extends": "standard",
+    "rules": {
+      "semi": ["error", "always"],
+      "no-unused-vars": ["error", {"vars": "local"}],
+      # "jest/no-disabled-tests": "warn",
+      "jest/no-focused-tests": "error",
+      "jest/no-identical-title": "error",
+      "jest/valid-expect": "error"
+      # "react/jsx-uses-vars": 2
+    },
+    "globals": {
+      "React": true
+    },
+    "env": {
+      "browser": true,
+      "commonjs": true,
+      "es6": true,
+      "mocha": true
+    },
+    "plugins": ["jest"]
+}
