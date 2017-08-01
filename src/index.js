@@ -5,15 +5,15 @@ import {BrowserRouter as Router} from 'react-router-dom';
 /* eslint-enable */
 import ReactDOM from 'react-dom';
 
-import createHistory from 'history/createBrowserHistory';
+// import createHistory from 'history/createBrowserHistory';
 
 import './styles/app.css';
 import registerServiceWorker from './registerServiceWorker';
 
-const history = createHistory();
+// const history = createHistory();
 
 ReactDOM.render(
-  <Router history={history}>
+  <Router>
     <App />
   </Router>, document.getElementById('root'));
 registerServiceWorker();

@@ -9,6 +9,7 @@ deployment:
     branch: staging
     heroku:
       appname: mysterious-earth-87212
+
   production:
     branch: master
     heroku:

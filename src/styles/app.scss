@@ -64,29 +64,22 @@ svg path{
   display: flex;
   justify-content: space-between;
   width: 100%;
-  // background-image: url('../assets/background.jpg');
   height: 100vh;
 }
 
 .App-about-text{
   margin-left: 15px;
   text-align: left;
-  // background-color: #eee;
-  // box-shadow: 0px 0px 2px $general-background;
   width: 45%;
 }
 
 .App-about-image{
   margin-right: 15px;
-  // height: auto;
-  // background-color: #eee;
-  // box-shadow: 0px 0px 2px $general-background;
   width: 45%;
 }
 
 #App-fabioImg {
   width: 100%;
-  // height: calc(100vh - 125px);
 }
 
 @media screen and (max-width: 768px){
