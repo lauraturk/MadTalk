@@ -1,0 +1,106 @@
+@import './gameInputList.scss';
+@import './gameInput.scss';
+@import './gameOutputList.scss';
+@import './gameOutput.scss';
+@import './index.scss';
+@import './variables.scss';
+
+body{
+  font-family: $general-text;
+  background-image: url('https://s-media-cache-ak0.pinimg.com/originals/7e/83/9b/7e839b71335bbaa071d1c202119e0c7b.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 100vh;
+}
+
+footer{
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  background-color: #111;
+  font-family: $general-title;
+  color: $general-primary;
+  height: $header-height;
+  font-size: 35px;
+  padding-top: 20px;
+}
+
+h1{
+  margin-top: 0;
+  margin-bottom: 5px;
+}
+
+.App {
+  position: relative;
+  text-align: center;
+  height: 100vh;
+}
+
+button{
+  font-family: $general-title;
+  color: $general-primary;
+  background-color: $general-background;
+}
+
+.App-startBtn{
+  margin-left: 15px;
+  text-decoration: none;
+  font-size: 18px;
+  width: 115px;
+  height: 55px;
+  color: #eee;
+}
+
+.App-speechBtn{
+  width: 44px;
+  height: 44px;
+}
+
+svg path{
+  fill: $general-secondary;
+}
+
+.App-about{
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  // background-image: url('../assets/background.jpg');
+  height: 100vh;
+}
+
+.App-about-text{
+  margin-left: 15px;
+  text-align: left;
+  // background-color: #eee;
+  // box-shadow: 0px 0px 2px $general-background;
+  width: 45%;
+}
+
+.App-about-image{
+  margin-right: 15px;
+  // height: auto;
+  // background-color: #eee;
+  // box-shadow: 0px 0px 2px $general-background;
+  width: 45%;
+}
+
+#App-fabioImg {
+  width: 100%;
+  // height: calc(100vh - 125px);
+}
+
+@media screen and (max-width: 768px){
+  footer{
+    position: static;
+    top: 0;
+    font-size: 30px;
+  }
+}
+
+@media screen and (max-width: 360px){
+  footer{
+    position: static;
+    top: 0;
+    font-size: 24px;
+  }
+}

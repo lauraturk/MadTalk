@@ -1,0 +1,15 @@
+machine:
+  timezone:
+    America/Denver
+  node:
+    version: 7.10.0
+
+deployment:
+  staging:
+    branch: staging
+    heroku:
+      appname: mysterious-earth-87212
+  production:
+    branch: master
+    heroku:
+      appname: madtalk
