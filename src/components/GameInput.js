@@ -15,7 +15,8 @@ export class GameInput extends Component {
       wordIndex: '',
       wordType: '',
       play: false,
-      listen: false
+      listen: false,
+      selected: false
     };
   }
 
@@ -37,6 +38,32 @@ export class GameInput extends Component {
       this.setState({
         play: true
       });
+    }
+  }
+
+  onDivFocus () {
+    if (!this.state.selected) {
+      console.log('selected');
+      this.setState({
+        selected: true
+      });
+    }
+  }
+
+  onDivBlur () {
+    if (this.state.selected) {
+      console.log('deselected');
+      this.setState({
+        selected: false
+      });
+    }
+  }
+
+  selectedCheck () {
+    if (this.state.selected === true) {
+      return 'game-input-container-selected';
+    } else {
+      return null;
     }
   }
 
@@ -85,20 +112,23 @@ export class GameInput extends Component {
     const { wordInfo, inputNumber, speechEnabled } = this.props;
     let wordPrompt = POShelper[wordInfo.type];
 
+    let selectedCheckValue = this.selectedCheck();
     return (
-      <div className={`game-input-card card-${inputNumber}`}
+      <div className={`game-input-card card-${inputNumber} ${selectedCheckValue}`}
+        onFocus = {() => this.onDivFocus()}
+        onBlur = {() => this.onDivBlur()}
         style={this.listeningStyle()}
         data-index={ wordInfo.index }
         data-type={ wordInfo.type }
         onClick={!speechEnabled ? null : () => this.onInputFocus()}>
         <label>
-          <h4>{ wordPrompt }</h4>
           <input className={this.inputStyle()}
             placeholder={ wordPrompt }
             value={ this.state.wordInput }
             onChange={(e) => this.setState({ wordInput: e.target.value })}
             onBlur={() => this.sendUpGameInputs()}
             onFocus={!speechEnabled ? null : () => this.onInputFocus()} />
+          <h4>{ wordPrompt }</h4>
           {!this.state.play ? null : <SpeechSynth text={wordPrompt}
             onSynthEnd={this.onSynthEnd.bind(this)} /> }
           {!this.state.listen ? null : <SpeechRec printValue={this.printValue.bind(this)}

@@ -33,6 +33,9 @@ export const GameOutputList = ({ textSample, gameInputWords, speechEnabled }) =>
 
   return (
     <section className='GameOutput-container'>
+      <video loop muted autoPlay className="video">
+        <source src = "../assets/video_bg/gif18.mp4" type="video/mp4"/>
+      </video>
       <div className='GameOutput-textContainer'>
         {!speechEnabled ? null : <SpeechSynth text={ joinedWords } onSynthEnd={outputSynthEnd.bind(this)} />}
         { populatedOutput }

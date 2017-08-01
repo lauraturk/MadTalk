@@ -1,10 +1,29 @@
+@import './variables.scss';
 
-#game-input-container {
-  border: 1px solid magenta;
+#game-input-list-container {
 }
 
 #game-input-list {
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-between;
+  justify-content: space-around;
+}
+
+#game-input-list a{
+  margin-top: 20px;
+}
+
+#submit-inputs-btn{
+  display: inline-block;
+  font-family: $general-title;
+  text-decoration: none;
+  margin-top: 15px;
+  padding: 12px;
+  font-size: 19px;
+  background-color: $general-background;
+  color: #efefef;
+}
+
+#submit-inputs-btn:hover{
+  text-decoration: underline;
 }

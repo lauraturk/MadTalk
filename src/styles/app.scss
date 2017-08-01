@@ -15,6 +15,7 @@ header{
   color: $general-primary;
   height: $header-height;
   font-size: 28px;
+  padding-top: 20px;
 }
 
 h1{
@@ -47,7 +48,7 @@ button{
 }
 
 svg path{
-  fill: green;
+  fill: $general-tertiary;
 }
 
 #App-fabioImg {

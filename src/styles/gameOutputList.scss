@@ -5,4 +5,14 @@
   background-repeat: no-repeat;
   background-position: center center;
   height: calc(100vh - 125px);
+  position: relative;
+}
+
+.GameOutput-holder{
+  width: 100%;
+  z-index: 0;
+}
+
+.video{
+  width: 100%;
 }

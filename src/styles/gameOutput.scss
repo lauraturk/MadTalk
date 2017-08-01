@@ -1,9 +1,12 @@
 @import './variables.scss';
 
 .GameOutput-textContainer {
-  position: relative;
+  position: absolute;
+  top: 10%;
+  left: 60%;
+  transform: translateX(-50%);
+  z-index:1;
   width: 70%;
-  float: right;
   margin: 20px;
   padding: 15px;
   background: $general-secondary-rgba;
