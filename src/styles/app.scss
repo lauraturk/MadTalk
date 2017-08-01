@@ -1,5 +1,6 @@
 @import './gameInputList.scss';
 @import './gameInput.scss';
+@import './gameOutputList.scss';
 @import './gameOutput.scss';
 @import './index.scss';
 @import './variables.scss';
@@ -12,7 +13,7 @@ header{
   background-color: $general-background;
   font-family: $general-title;
   color: $general-primary;
-  height: 125px;
+  height: $header-height;
   font-size: 28px;
 }
 
@@ -45,6 +46,15 @@ button{
   height:44px;
 }
 
+
 svg path{
   fill: green;
+}
+#App-fabioGIF {
+
+}
+
+#App-fabioImg {
+  width: 100%;
+  height: calc(100vh - 125px);
 }
