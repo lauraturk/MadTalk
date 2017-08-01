@@ -22,7 +22,7 @@ export default class Helper {
 
       return acc;
     }, {all: {}, core: {}});
-    const pctSelections = 10; // Adjust to increase qty of selections
+    const pctSelections = 20; // Adjust to increase qty of selections
     const qtyWords = text.length;
     const qtyCoreWords = Object.keys(wordTallies.core).reduce((acc, wordType) => {
       if (wordType === 'NN' || wordType === 'VB' || wordType === 'JJ') {

@@ -56,7 +56,7 @@ class App extends Component {
   displayLoadingGIF () {
     if (this.state.isLoading) {
       return (
-        <img id='App-fabioImg' src="https://media.giphy.com/media/g1EJwzB0E1ZAs/giphy.gif" alt='Fabio gif' />
+        <img id='App-fabioImg' src="https://media.giphy.com/media/BPGcNSPt2RUY0/giphy.gif" alt='Fabio gif' />
       );
     }
   }

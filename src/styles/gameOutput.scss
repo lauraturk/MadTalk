@@ -91,3 +91,23 @@
     display: none;
   }
 }
+
+@media screen and (max-width: 400px){
+  .GameOutput-textContainer:before {
+    position: absolute;
+    content: '';
+    top: -45px;
+    left: 70%;
+    border-right: 45px solid transparent;
+    border-bottom: 45px solid $general-word-rgba;
+    border-left: 20px solid transparent;
+  }
+
+  .GameOutput-textContainer {
+    font-size: 12px;
+  }
+
+  .GameOutput-text {
+    line-height: 20px;
+  }
+}

@@ -97,7 +97,7 @@ export class GameInput extends Component {
 
   listeningStyle () {
     if (this.state.listen && this.state.wordInput === '') {
-      return {'boxShadow': '0 0 20px #61BFCC'};
+      return {'boxShadow': '0 0 30px #fff'};
     }
   }
 
