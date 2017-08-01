@@ -92,6 +92,7 @@ export class GameInput extends Component {
         data-type={ wordInfo.type }
         onClick={!speechEnabled ? null : () => this.onInputFocus()}>
         <label>
+          <h4>{ wordPrompt }</h4>
           <input className={this.inputStyle()}
             placeholder={ wordPrompt }
             value={ this.state.wordInput }
@@ -102,7 +103,6 @@ export class GameInput extends Component {
             onSynthEnd={this.onSynthEnd.bind(this)} /> }
           {!this.state.listen ? null : <SpeechRec printValue={this.printValue.bind(this)}
             onSpeechEnd={this.onSpeechEnd.bind(this)}/>}
-          <h4>{ wordPrompt }</h4>
         </label>
       </div>
     );
