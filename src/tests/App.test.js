@@ -16,4 +16,8 @@ describe('App tests', () => {
     const wrapper = shallow(<App />);
     expect(wrapper.find('.App').length).toBe(1);
   });
+  // it('2. Renders without crashing', () => {
+  //   const wrapper = shallow(<App />);
+  //   expect(wrapper.find('.App').length).toBe(1);
+  // });
 });
