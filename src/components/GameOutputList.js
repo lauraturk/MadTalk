@@ -35,9 +35,11 @@ export const GameOutputList = ({ textSample, gameInputWords, speechEnabled }) =>
   // console.log(wordsWithHTML);
 
   return (
-    <section className='game-output-container'>
-      {!speechEnabled ? null : <SpeechSynth text={ joinedWords } onSynthEnd={outputSynthEnd.bind(this)} />}
-      { wordsWithHTML }
+    <section className='GameOutput-container'>
+      <div className='GameOutput-textContainer'>
+        {!speechEnabled ? null : <SpeechSynth text={ joinedWords } onSynthEnd={outputSynthEnd.bind(this)} />}
+        { populatedOutput }
+      </div>
     </section>
   );
 };

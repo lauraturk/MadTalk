@@ -1,10 +1,10 @@
 /* eslint-disable */
 import React from 'react';
 import App from './components/App';
+import {BrowserRouter as Router} from 'react-router-dom';
 /* eslint-enable */
 import ReactDOM from 'react-dom';
 
-import {BrowserRouter as Router} from 'react-router-dom';
 import createHistory from 'history/createBrowserHistory';
 
 import './styles/app.css';
