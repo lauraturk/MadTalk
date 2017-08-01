@@ -24,12 +24,14 @@ class App extends Component {
   }
 
   startNewGame () {
+    this.setState({isLoading: true});
     helper.getTextSample()
       .then(textSample => {
         const selectedIndices = helper.getPartsOfSpeech(textSample.words);
         this.setState({
           textSample: textSample,
-          selectedWords: selectedIndices
+          selectedWords: selectedIndices,
+          isLoading: false
         });
       });
   }
@@ -51,6 +53,14 @@ class App extends Component {
     });
   }
 
+  displayLoadingGIF () {
+    if (this.state.isLoading) {
+      return (
+        <img id='App-fabioImg' src="https://media.giphy.com/media/g1EJwzB0E1ZAs/giphy.gif" alt='Fabio gif' />
+      );
+    }
+  }
+
   render () {
     return (
       <section className="App">
@@ -58,9 +68,10 @@ class App extends Component {
           <header>
             <h1>MADTALK</h1>
             <button className="App-speechBtn" onClick={() => this.setState({speechEnabled: !this.state.speechEnabled})}>{!this.state.speechEnabled ? icons.micOff : icons.micOn }</button>
-            <Link to = '/gameinput' className="App-startBtn" onClick={() => this.startNewGame()}>start game</Link>
+            <Link to = '/gameinput' className="App-startBtn" onClick={() => this.startNewGame()}>new game</Link>
           </header>
         </section>
+        <div id='App-fabioGIF'>{ this.displayLoadingGIF() }</div>
         <Route path={'/gameinput'} render={() => <GameInputList selectedWordObj={ this.state.selectedWords }
           handleGameInputs={ this.handleGameInputs.bind(this) }
           speechEnabled={this.state.speechEnabled}/>}/>
