@@ -1,4 +1,3 @@
-
 export default class Helper {
   async getTextSample () {
     let wordsData = await fetch('https://byob-madlib.herokuapp.com/api/v1/text_samples/17/words');
