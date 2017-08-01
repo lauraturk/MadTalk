@@ -1,5 +1,11 @@
 
 export default class Helper {
+  async queryGoogleBooks (userQuery) {
+    let googleBookData = await fetch(`https://www.googleapis.com/books/v1/volumes?q=${userQuery}`);
+    let googleBookObj = await googleBookData.json();
+    return googleBookObj;
+  }
+
   async getTextSample () {
     let wordsData = await fetch('https://byob-madlib.herokuapp.com/api/v1/text_samples/17/words');
     let textSampleData = await fetch('https://byob-madlib.herokuapp.com/api/v1/text_samples/17');

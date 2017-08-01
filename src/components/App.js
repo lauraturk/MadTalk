@@ -2,6 +2,8 @@
 import React, { Component } from 'react';
 import { GameInputList } from './GameInputList';
 import { GameOutputList } from './GameOutputList';
+import { InputSnippet } from './InputSnippet';
+import { InputGoogleBook } from './InputGoogleBook';
 
 import { Link, Route } from 'react-router-dom';
 import * as icons from '../assets/icons';
@@ -72,6 +74,8 @@ class App extends Component {
           </header>
         </section>
         <div id='App-fabioGIF'>{ this.displayLoadingGIF() }</div>
+        <InputSnippet />
+        <InputGoogleBook />
         <Route path={'/gameinput'} render={() => <GameInputList selectedWordObj={ this.state.selectedWords }
           handleGameInputs={ this.handleGameInputs.bind(this) }
           speechEnabled={this.state.speechEnabled}/>}/>
