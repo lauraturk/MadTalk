@@ -8,7 +8,7 @@ const SpeechRecognition = window.SpeechRecognition ||
                     window.mozSpeechRecognition;
 
 export const SpeechRec = (props) => {
-  const { printValue, onSpeechEnd } = props;
+  const { printValue, onSpeechEnd, cancelRec } = props;
   const recognition = new SpeechRecognition();
 
   recognition.start();
@@ -24,6 +24,11 @@ export const SpeechRec = (props) => {
 
     printValue(lastword);
   };
+
+  if (cancelRec) {
+    console.log('cancel rec firing');
+    recognition.abort();
+  }
 
   return (
     <div>{icons.micOn} Listening</div>

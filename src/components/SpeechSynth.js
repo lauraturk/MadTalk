@@ -8,6 +8,8 @@ export const SpeechSynth = (props) => {
   let icon = icons.speakerOn;
 
   const createUtterance = (utterance) => {
+    window.speechSynthesis.cancel();
+    speechSynthesis.cancel();
     const defaults = {
       volume: 1,
       rate: 1,
@@ -31,15 +33,23 @@ export const SpeechSynth = (props) => {
   };
 
   const endSpeak = () => {
-    const { onSynthEnd } = props;
-    onSynthEnd();
+    const { onSynthEnd, playStatus } = props;
+    if (playStatus) {
+      console.log('is listen turned on here?');
+      onSynthEnd();
+    }
   };
 
   const turnOffSpeech = () => {
     window.speechSynthesis.cancel();
-    icon = icons.speakerOff;
-    return icon;
+    // const { onSynthEnd } = props;
+    // onSynthEnd();
   };
+
+  // if (cancelSynth) {
+  //   console.log('cancel synth firing');
+  //   turnOffSpeech();
+  // }
 
   speak(createUtterance(text));
 
