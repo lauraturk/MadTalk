@@ -74,11 +74,11 @@ class App extends Component {
           handleGameInputs={ this.handleGameInputs.bind(this) }
           gameTitle={this.state.textSample}
           speechEnabled={this.state.speechEnabled}/>}
-          />
+        />
         <Route path={'/gameoutput'} render={() => <GameOutputList textSample={ this.state.textSample }
           gameInputWords={ this.state.gameInputWords }
           speechEnabled={this.state.speechEnabled}/>}
-          />
+        />
       </section>
     );
   }
