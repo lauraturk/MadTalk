@@ -26,6 +26,10 @@ export class GameInput extends Component {
     });
   }
 
+  componentWillUnmount () {
+    console.log('unmount');
+  }
+
   onInputFocus () {
     console.log('on input focus');
     if (this.props.speechEnabled) {
@@ -39,14 +43,6 @@ export class GameInput extends Component {
       });
     };
   }
-
-  // onDivFocus () {
-  //   if (!this.state.selected) {
-  //     this.setState({
-  //       selected: true
-  //     });
-  //   }
-  // }
 
   onDivBlur () {
     this.props.handleGameInputs(this.state);
@@ -90,12 +86,12 @@ export class GameInput extends Component {
     }
   }
 
-  inputStyle () {
-    if (this.state.listen && this.state.wordInput === '') {
-      return 'selected-word-input selected-word-input_listening';
-    }
-    return 'selected-word-input';
-  }
+  // inputStyle () {
+  //   if (this.state.listen && this.state.wordInput === '') {
+  //     return 'selected-word-input selected-word-input_listening';
+  //   }
+  //   return 'selected-word-input';
+  // }
 
   render () {
     const { wordInfo, inputNumber } = this.props;
@@ -119,15 +115,13 @@ export class GameInput extends Component {
             onFocus={() => this.onInputFocus()}
             ref='child'
           />
-          <hr className={this.inputStyle()}></hr>
           <h4 className={!this.state.selected ? 'word-prompt' : 'word-prompt-selected'}>{ wordPrompt }</h4>
-          {this.state.play ? <SpeechSynth text={wordPrompt}
+          <SpeechSynth text={wordPrompt}
             onSynthEnd={this.onSynthEnd.bind(this)}
-            playStatus={ this.state.play }/> : null }
-          {this.state.listen ? <SpeechRec printValue={this.printValue.bind(this)}
+            playStatus={ this.state.play }/>
+          <SpeechRec printValue={this.printValue.bind(this)}
             onSpeechEnd={this.onSpeechEnd.bind(this)}
-            // cancelRec={ !this.state.play && !this.state.listen ? true : false }
-          /> : null}
+            listenStatus={ this.state.listen }/>
         </label>
       </div>
     );

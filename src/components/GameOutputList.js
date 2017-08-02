@@ -41,7 +41,7 @@ export const GameOutputList = ({ textSample, gameInputWords, speechEnabled }) =>
         <source src={`/video_bg/clip${randomVideo}.mp4`} type="video/mp4"></source>
       </video>
       <div className='GameOutput-textContainer'>
-        {!speechEnabled ? null : <SpeechSynth text={ gameReadout } onSynthEnd={() => null} />}
+        {!speechEnabled ? null : <SpeechSynth text={ gameReadout } playStatus={ true } onSynthEnd={() => null} />}
         { populatedOutput }
       </div>
     </section>

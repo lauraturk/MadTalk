@@ -4,7 +4,7 @@ import * as icons from '../assets/icons';
 /* eslint-enable */
 
 export const SpeechSynth = (props) => {
-  const { text } = props;
+  const { text, playStatus } = props;
   let icon = icons.speakerOn;
 
   const createUtterance = (utterance) => {
@@ -25,10 +25,6 @@ export const SpeechSynth = (props) => {
 
     Object.assign(speech, defaults);
 
-    return speech;
-  };
-
-  const speak = (speech) => {
     window.speechSynthesis.speak(speech);
   };
 
@@ -42,16 +38,12 @@ export const SpeechSynth = (props) => {
 
   const turnOffSpeech = () => {
     window.speechSynthesis.cancel();
-    // const { onSynthEnd } = props;
-    // onSynthEnd();
   };
 
-  // if (cancelSynth) {
-  //   console.log('cancel synth firing');
-  //   turnOffSpeech();
-  // }
+  if (playStatus) {
+    createUtterance(text);
+    return (<div onClick={() => turnOffSpeech()}>{icon}</div>);
+  }
 
-  speak(createUtterance(text));
-
-  return (<div onClick={() => turnOffSpeech()}>{icon}</div>);
+  return (<div></div>);
 };
