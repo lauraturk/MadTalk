@@ -2,13 +2,12 @@
 import React from 'react';
 import { GameOutput } from './GameOutput';
 import { SpeechSynth } from './SpeechSynth';
-/* eslint-enable */ 
+/* eslint-enable */
 
 export const GameOutputList = ({ textSample, gameInputWords, speechEnabled }) => {
   if (!textSample.textSample) { return <div></div>; }
   let indexedTextSample = textSample.textSample[0].body.split(' ');
   let punctuationArr = ["'", ',', '.', '?', '!', '-', '$', '&', '(', ')', 's', 't', 'nt', 'd', 've'];
-
   gameInputWords.forEach(word => {
     indexedTextSample[word.wordIndex] = `####${word.userInputWord}%${word.wordType}###`;
   });
@@ -34,8 +33,7 @@ export const GameOutputList = ({ textSample, gameInputWords, speechEnabled }) =>
     return acc;
   }, '');
 
-  let randomVideo = Math.floor(Math.random() * (24 - 0)) + 1;
-
+  let randomVideo = Math.floor(Math.random() * (13 - 0)) + 1;
   return (
     <section className='GameOutput-container'>
       <video loop muted autoPlay className='video'>
