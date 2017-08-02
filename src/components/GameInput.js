@@ -43,7 +43,6 @@ export class GameInput extends Component {
 
   onDivFocus () {
     if (!this.state.selected) {
-      console.log('selected');
       this.setState({
         selected: true
       });
@@ -52,7 +51,6 @@ export class GameInput extends Component {
 
   onDivBlur () {
     if (this.state.selected) {
-      console.log('deselected');
       this.setState({
         selected: false
       });
@@ -74,22 +72,13 @@ export class GameInput extends Component {
     });
   }
 
-  // onSpeechStart () {
-  //   console.log('onSpeechStart listening');
-  //   this.inputStyle = {
-  //     'borderBottom': '4px solid blue'
-  //   };
-  // }
-
   onSpeechEnd () {
-    console.log('on speech end');
     this.setState({
       listen: !this.state.listen
     });
   }
 
   printValue (word, confidence) {
-    console.log(confidence, 'confidence in print value');
     this.setState({
       wordInput: word
     });
