@@ -66,8 +66,27 @@ hr{
 }
 
 .selected-word-input:focus::-webkit-input-placeholder {
-  transition: opacity 0.5s 0.5s ease;
+  transition: opacity 0.5s ease;
   opacity: 0;
+}
+
+.word-prompt {
+  margin-bottom: 20px;
+  opacity: 0;
+}
+
+.word-prompt-selected {
+  margin-bottom: 30px;
+  margin-top: 0;
+  opacity: .8;
+  transition: 0.5s ease;
+  -webkit-transition-duration:0.5s;
+  -webkit-transition-delay:0.5s;
+  -webkit-transition-timing-function: linear;
+}
+
+.game-title {
+  color: white;
 }
 
 @keyframes listeningBar {

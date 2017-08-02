@@ -72,10 +72,14 @@ class App extends Component {
         <div id='App-fabioGIF'>{ this.displayLoadingGIF() }</div>
         <Route path={'/gameinput'} render={() => <GameInputList selectedWordObj={ this.state.selectedWords }
           handleGameInputs={ this.handleGameInputs.bind(this) }
-          speechEnabled={this.state.speechEnabled}/>}/>
+          gameTitle={this.state.textSample}
+          speechEnabled={this.state.speechEnabled}/>}
+          />
         <Route path={'/gameoutput'} render={() => <GameOutputList textSample={ this.state.textSample }
           gameInputWords={ this.state.gameInputWords }
-          speechEnabled={this.state.speechEnabled}/>}/>
+          gameTitle={this.state.textSample}
+          speechEnabled={this.state.speechEnabled}/>}
+          />
       </section>
     );
   }

@@ -4,7 +4,7 @@ import { GameOutput } from './GameOutput';
 import { SpeechSynth } from './SpeechSynth';
 /* eslint-enable */
 
-export const GameOutputList = ({ textSample, gameInputWords, speechEnabled }) => {
+export const GameOutputList = ({ textSample, gameInputWords, speechEnabled, gameTitle }) => {
   if (!textSample.textSample) { return <div></div>; }
   let indexedTextSample = textSample.textSample[0].body.split(' ');
   let punctuationArr = ["'", ',', '.', '?', '!', '-', '$', '&', '(', ')', 's', 't', 'nt', 'd', 've'];
@@ -36,6 +36,7 @@ export const GameOutputList = ({ textSample, gameInputWords, speechEnabled }) =>
   let randomVideo = Math.floor(Math.random() * (13 - 0)) + 1;
   return (
     <section className='GameOutput-container'>
+      <h3 className='game-title'>{gameTitle.textSample[0].title}</h3>
       <video loop muted autoPlay className='video'>
         <source src={`/video_bg/clip${randomVideo}.mp4`} type="video/mp4"></source>
       </video>
