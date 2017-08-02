@@ -20,6 +20,14 @@ import { Route, Link, NavLink, BrowserRouter as Router } from 'react-router-dom'
 // });
 
 describe('App tests', () => {
+  let wrapper;
+
+  beforeEach(() => {
+    wrapper = shallow(<App gameTitle={{textSample:[{title: 'Ooh'}]}}
+      speechEnabled= {false}
+    />);
+  });
+
   afterEach(() => {
     if (fetchMock.calls().unmatched.length) {
       console.warn(fetchMock.calls().unmatched);
@@ -28,18 +36,15 @@ describe('App tests', () => {
   });
 
   it('1. Renders without crashing', () => {
-    const wrapper = shallow(<App />);
     expect(wrapper.find('.App').length).toBe(1);
   });
 
   it('2. Should render a heading', () => {
-    const wrapper = shallow(<App />);
     expect(wrapper.find('h1').length).toBe(1);
     expect(wrapper.find('h1').text()).toBe('MADTALK');
   });
 
   it('3. Should toggle sound on button click', () => {
-    const wrapper = shallow(<App />);
     let button = wrapper.find('.App-speechBtn');
 
     expect(wrapper.state().speechEnabled).toBe(false);
@@ -48,7 +53,6 @@ describe('App tests', () => {
   });
 
   it('4. Should set state to loading', () => {
-    const wrapper = shallow(<App />);
     let link = wrapper.find('.App-startBtn');
 
     link.simulate('click');
@@ -57,7 +61,6 @@ describe('App tests', () => {
 
   it('5. Should render input option cards on click of the startgame link', async () => {
     mockFetchCalls();
-    const wrapper = shallow(<App />);
     let link = wrapper.find('.App-startBtn');
 
     link.simulate('click');

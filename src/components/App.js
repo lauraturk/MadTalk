@@ -77,7 +77,6 @@ class App extends Component {
           />
         <Route path={'/gameoutput'} render={() => <GameOutputList textSample={ this.state.textSample }
           gameInputWords={ this.state.gameInputWords }
-          gameTitle={this.state.textSample}
           speechEnabled={this.state.speechEnabled}/>}
           />
       </section>

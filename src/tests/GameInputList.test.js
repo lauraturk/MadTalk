@@ -18,6 +18,7 @@ describe('Game Input List tests', () => {
   beforeEach(() => {
     wrapper = shallow(<GameInputList selectedWordObj={selectedWordObj}
       speechEnabled= {false}
+      gameTitle={{textSample:[{title: 'Ooh'}]}}
     />);
   });
 
