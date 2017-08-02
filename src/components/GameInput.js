@@ -7,9 +7,7 @@ import POShelper from '../helpers/pos-helper';
 
 export class GameInput extends Component {
   constructor () {
-    /*eslint-disable */
-    super ();
-    /*eslint-enable */
+    super();
     this.state = {
       wordInput: '',
       wordIndex: '',
@@ -78,7 +76,7 @@ export class GameInput extends Component {
     });
   }
 
-  printValue (word, confidence) {
+  printValue (word) {
     this.setState({
       wordInput: word
     });

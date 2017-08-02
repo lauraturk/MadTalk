@@ -20,16 +20,9 @@ export const SpeechRec = (props) => {
 
   recognition.onresult = (e) => {
     let last = e.results.length - 1;
-    // let first = e.results[0]
     let lastword = e.results[last][0].transcript;
-    // let firstword = e.results[first][0].transcript;
 
-    printValue(lastword, e.results[0][0].confidence);
-
-    console.log('results: ', e.results);
-    console.log('result: ', lastword);
-    // console.log('result: ', firstword);
-    console.log('Confidence: ' + e.results[0][0].confidence);
+    printValue(lastword);
   };
 
   return (

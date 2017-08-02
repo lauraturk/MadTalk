@@ -6,14 +6,11 @@ import App from '../components/App';
 import { shallow, mount } from 'enzyme';
 import fetchMock from 'fetch-mock';
 import { resolveAfter2Seconds, mockFetchCalls } from './testHelper'
-
-import wordStub from './wordStub.js'
-import textStub from './textStub.js'
-
 import { Route, Link, NavLink, BrowserRouter as Router } from 'react-router-dom'
-
 /* eslint-enable */
 
+
+import textStub from './textStub.js';
 describe('App tests', () => {
   let wrapper;
 

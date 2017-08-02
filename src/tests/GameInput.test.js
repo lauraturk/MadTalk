@@ -16,15 +16,15 @@ describe('Game Input tests', () => {
   it('2. Renders with an input', () => {
     const wrapper = shallow(<GameInput wordInfo={{word: 'ball', type: 'NN', index: 1}}/>);
 
-    expect(wrapper.find('input').length).toEqual(1)
+    expect(wrapper.find('input').length).toEqual(1);
   });
 
   it('3. Input should indicate when focused', () => {
     const wrapper = shallow(<GameInput wordInfo={{word: 'ball', type: 'NN', index: 1}}/>);
 
-    expect(wrapper.state('selected')).toEqual(false)
+    expect(wrapper.state('selected')).toEqual(false);
     wrapper.simulate('focus');
-    expect(wrapper.state('selected')).toEqual(true)
+    expect(wrapper.state('selected')).toEqual(true);
   });
 
   it('4. should indicate when unselected', () => {
