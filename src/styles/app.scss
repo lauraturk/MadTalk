@@ -4,6 +4,8 @@
 @import './gameOutput.scss';
 @import './index.scss';
 @import './variables.scss';
+@import url('https://fonts.googleapis.com/css?family=Lobster');
+
 
 body{
   font-family: $general-text;
@@ -75,6 +77,16 @@ svg path{
   width: 100%;
 }
 
+.game-title {
+  font-family: 'Lobster', cursive;
+  font-size: 2em;
+  max-width: 600px;
+  position: absolute;
+  left: 30px;
+  top: 5px;
+  z-index: -1;
+}
+
 @media screen and (max-width: 768px){
 
   .App{
@@ -85,6 +97,12 @@ svg path{
     position: static;
     top: 0;
     font-size: 30px;
+  }
+
+  .game-title {
+    font-size: 1.75em;
+    left: 20px;
+    top: 150px;
   }
 }
 
