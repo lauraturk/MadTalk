@@ -14,16 +14,11 @@ import { Route, Link, NavLink, BrowserRouter as Router } from 'react-router-dom'
 
 /* eslint-enable */
 
-// it('renders without crashing', () => {
-//   const div = document.createElement('div');
-//   ReactDOM.render(<App />, div);
-// });
-
 describe('App tests', () => {
   let wrapper;
 
   beforeEach(() => {
-    wrapper = shallow(<App gameTitle={{textSample:[{title: 'Ooh'}]}}
+    wrapper = shallow(<App gameTitle={{textSample: [{title: 'Ooh'}]}}
       speechEnabled= {false}
     />);
   });
