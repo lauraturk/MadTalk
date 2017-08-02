@@ -9,8 +9,8 @@ import { resolveAfter2Seconds, mockFetchCalls } from './testHelper'
 import { Route, Link, NavLink, BrowserRouter as Router } from 'react-router-dom'
 /* eslint-enable */
 
-import textStub from './textStub.js';
 
+import textStub from './textStub.js';
 describe('App tests', () => {
   let wrapper;
 
