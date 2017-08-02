@@ -12,12 +12,12 @@ export const resolveAfter2Seconds = () => {
 };
 
 export const mockFetchCalls = () => {
-  fetchMock.get('https://byob-madlib.herokuapp.com/api/v1/text_samples/17/words', {
+  fetchMock.get('https://byob-madlib.herokuapp.com/api/v1/text_samples/:id/words', {
     status: 200,
     body: wordStub
   });
 
-  fetchMock.get('https://byob-madlib.herokuapp.com/api/v1/text_samples/17', {
+  fetchMock.get('https://byob-madlib.herokuapp.com/api/v1/text_samples/:id', {
     status: 200,
     body: textStub
   });

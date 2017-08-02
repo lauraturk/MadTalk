@@ -4,11 +4,6 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { GameInput } from '../components/GameInput';
 import { shallow, mount } from 'enzyme';
-import fetchMock from 'fetch-mock';
-import { resolveAfter2Seconds, mockFetchCalls } from './testHelper'
-import { Route, Link, NavLink, BrowserRouter as Router } from 'react-router-dom'
-import wordStub from './wordStub.js'
-import textStub from './textStub.js'
 /* eslint-enable */
 
 describe('Game Input tests', () => {
@@ -24,19 +19,20 @@ describe('Game Input tests', () => {
     expect(wrapper.find('input').length).toEqual(1)
   });
 
-  it('3. Input should update with value from state', () => {
-    const wrapper = mount(<GameInput wordInfo={{word: 'ball', type: 'NN', index: 1}}/>);
+  it('3. Input should indicate when focused', () => {
+    const wrapper = shallow(<GameInput wordInfo={{word: 'ball', type: 'NN', index: 1}}/>);
 
     expect(wrapper.state('selected')).toEqual(false)
     wrapper.simulate('focus');
     expect(wrapper.state('selected')).toEqual(true)
   });
 
-  it('4. onblur input should be sent to App', () => {
-    const mockFunc = jest.fn()
-    const wrapper = mount(<GameInput wordInfo={{word: 'ball', type: 'NN', index: 1}} onBlur={mockFunc}/>);
+  it('4. should indicate when unselected', () => {
+    const wrapper = shallow(<GameInput wordInfo={{word: 'ball', type: 'NN', index: 1}}/>);
 
+    wrapper.simulate('focus');
+    expect(wrapper.state('selected')).toEqual(true);
     wrapper.simulate('blur');
-    expect(mockFunc.mock.calls.length).toBe(1);
+    expect(wrapper.state('selected')).toEqual(false);
   });
 });
