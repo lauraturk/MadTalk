@@ -16,4 +16,9 @@ describe('GameOutput tests', () => {
     const wrapper = shallow(<GameOutput outputWordSection={ '#word%NN' }/>);
     expect(wrapper.find('.GameOutput-wordContainer').length).toBe(1);
   });
+
+  it('3. returns GameOutput-type', () => {
+    const wrapper = shallow(<GameOutput outputWordSection={ '#word%NN' }/>);
+    expect(wrapper.find('.GameOutput-type').length).toBe(1);
+  });
 });
