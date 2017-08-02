@@ -8,24 +8,33 @@ const SpeechRecognition = window.SpeechRecognition ||
                     window.mozSpeechRecognition;
 
 export const SpeechRec = (props) => {
-  const { printValue, onSpeechEnd } = props;
-  const recognition = new SpeechRecognition();
+  const { printValue, onSpeechEnd, listenStatus } = props;
 
-  recognition.start();
+  if (listenStatus) {
+    const recognition = new SpeechRecognition();
+    let listeningClass = 'selected-word-input selected-word-input_listening';
 
-  recognition.onspeechend = () => {
-    recognition.stop();
-    onSpeechEnd();
-  };
+    recognition.start();
+    recognition.onspeechend = () => {
+      listeningClass = 'selected-word-input';
+      recognition.stop();
+      onSpeechEnd();
+    };
 
-  recognition.onresult = (e) => {
-    let last = e.results.length - 1;
-    let lastword = e.results[last][0].transcript;
+    recognition.onresult = (e) => {
+      let last = e.results.length - 1;
+      let lastword = e.results[last][0].transcript;
 
-    printValue(lastword);
-  };
+      printValue(lastword);
+    };
 
-  return (
-    <div>{icons.micOn} Listening</div>
-  );
+    return (
+      <div className='speech-rec-div'>
+        <hr className={ listeningClass }></hr>
+        <div>{icons.micOn} Listening</div>
+      </div>
+    );
+  } else {
+    return (<div></div>);
+  }
 };

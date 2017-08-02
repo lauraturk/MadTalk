@@ -26,37 +26,35 @@ export class GameInput extends Component {
     });
   }
 
-  sendUpGameInputs () {
-    const { handleGameInputs } = this.props;
-    handleGameInputs(this.state);
+  componentWillUnmount () {
+    console.log('unmount');
   }
 
   onInputFocus () {
-    if (!this.state.play) {
+    console.log('on input focus');
+    if (this.props.speechEnabled) {
       this.setState({
+        selected: true,
         play: true
       });
-    }
-  }
-
-  onDivFocus () {
-    if (!this.state.selected) {
+    } else {
       this.setState({
         selected: true
       });
-    }
+    };
   }
 
   onDivBlur () {
-    if (this.state.selected) {
-      this.setState({
-        selected: false
-      });
-    }
+    this.props.handleGameInputs(this.state);
+    this.setState({
+      selected: false,
+      play: false,
+      listen: false
+    });
   }
 
   selectedCheck () {
-    if (this.state.selected === true) {
+    if (this.state.selected) {
       return 'game-input-container-selected';
     } else {
       return null;
@@ -65,14 +63,14 @@ export class GameInput extends Component {
 
   onSynthEnd () {
     this.setState({
-      play: !this.state.play,
-      listen: !this.state.listen
+      play: false,
+      listen: true
     });
   }
 
   onSpeechEnd () {
     this.setState({
-      listen: !this.state.listen
+      listen: false
     });
   }
 
@@ -88,39 +86,42 @@ export class GameInput extends Component {
     }
   }
 
-  inputStyle () {
-    if (this.state.listen && this.state.wordInput === '') {
-      return 'selected-word-input selected-word-input_listening';
-    }
-    return 'selected-word-input';
-  }
+  // inputStyle () {
+  //   if (this.state.listen && this.state.wordInput === '') {
+  //     return 'selected-word-input selected-word-input_listening';
+  //   }
+  //   return 'selected-word-input';
+  // }
 
   render () {
-    const { wordInfo, inputNumber, speechEnabled } = this.props;
+    const { wordInfo, inputNumber } = this.props;
     let wordPrompt = POShelper[wordInfo.type];
 
     let selectedCheckValue = this.selectedCheck();
     return (
       <div className={`game-input-card card-${inputNumber} ${selectedCheckValue}`}
-        onFocus = {() => this.onDivFocus()}
-        onBlur = {() => this.onDivBlur()}
+        // onFocus = {() => this.onDivFocus()}
+        // onBlur = {() => this.onDivBlur()}
+        onClick={() => this.refs.child.focus() }
         style={this.listeningStyle()}
         data-index={ wordInfo.index }
-        data-type={ wordInfo.type }
-        onClick={!speechEnabled ? null : () => this.onInputFocus()}>
+        data-type={ wordInfo.type }>
         <label>
           <input className='selected-word-input'
             placeholder={ wordPrompt }
             value={ this.state.wordInput }
             onChange={(e) => this.setState({ wordInput: e.target.value })}
-            onBlur={() => this.sendUpGameInputs()}
-            onFocus={!speechEnabled ? null : () => this.onInputFocus()} />
-          <hr className={this.inputStyle()}></hr>
+            onBlur={() => this.onDivBlur()}
+            onFocus={() => this.onInputFocus()}
+            ref='child'
+          />
           <h4 className={!this.state.selected ? 'word-prompt' : 'word-prompt-selected'}>{ wordPrompt }</h4>
-          {!this.state.play ? null : <SpeechSynth text={wordPrompt}
-            onSynthEnd={this.onSynthEnd.bind(this)} /> }
-          {!this.state.listen ? null : <SpeechRec printValue={this.printValue.bind(this)}
-            onSpeechEnd={this.onSpeechEnd.bind(this)}/>}
+          <SpeechSynth text={wordPrompt}
+            onSynthEnd={this.onSynthEnd.bind(this)}
+            playStatus={ this.state.play }/>
+          <SpeechRec printValue={this.printValue.bind(this)}
+            onSpeechEnd={this.onSpeechEnd.bind(this)}
+            listenStatus={ this.state.listen }/>
         </label>
       </div>
     );
