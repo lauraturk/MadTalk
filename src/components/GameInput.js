@@ -117,8 +117,8 @@ export class GameInput extends Component {
             onChange={(e) => this.setState({ wordInput: e.target.value })}
             onBlur={() => this.sendUpGameInputs()}
             onFocus={!speechEnabled ? null : () => this.onInputFocus()} />
-          <hr className = {this.inputStyle()}></hr>
-          <h4>{ wordPrompt }</h4>
+          <hr className={this.inputStyle()}></hr>
+          <h4 className={!this.state.selected ? 'word-prompt' : 'word-prompt-selected'}>{ wordPrompt }</h4>
           {!this.state.play ? null : <SpeechSynth text={wordPrompt}
             onSynthEnd={this.onSynthEnd.bind(this)} /> }
           {!this.state.listen ? null : <SpeechRec printValue={this.printValue.bind(this)}

@@ -36,6 +36,7 @@ export const GameOutputList = ({ textSample, gameInputWords, speechEnabled }) =>
   let randomVideo = Math.floor(Math.random() * (13 - 0)) + 1;
   return (
     <section className='GameOutput-container'>
+      <h3 className='game-title'>{textSample.textSample[0].title}</h3>
       <video loop muted autoPlay className='video'>
         <source src={`/video_bg/clip${randomVideo}.mp4`} type="video/mp4"></source>
       </video>
