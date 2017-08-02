@@ -1,9 +1,6 @@
 
 .GameOutput-container {
-  background-image: url('https://s-media-cache-ak0.pinimg.com/originals/7e/83/9b/7e839b71335bbaa071d1c202119e0c7b.jpg');
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center center;
+  // background:  url('https://s-media-cache-ak0.pinimg.com/originals/7e/83/9b/7e839b71335bbaa071d1c202119e0c7b.jpg') cover no-repeat fixed;
   height: calc(100vh - 125px);
   z-index: 0;
   position: relative;
@@ -11,11 +8,11 @@
 
 .video {
   border:1px solid #eee;
-  margin-top: 10%;
+  margin-top: 175px;
   margin-right: 25%;
   z-index: 2;
-  width: 65%;
-  max-width: 785px;
+  width: 60%;
+  max-width: 750px;
 }
 
 @media screen and (max-width: 900px){
