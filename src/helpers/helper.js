@@ -1,7 +1,8 @@
 export default class Helper {
   async getTextSample () {
-    let wordsData = await fetch('https://byob-madlib.herokuapp.com/api/v1/text_samples/17/words');
-    let textSampleData = await fetch('https://byob-madlib.herokuapp.com/api/v1/text_samples/17');
+    let randomIndex = Math.floor(Math.random() * (22 - 15)) + 15; // The maximum is exclusive and the minimum is inclusive
+    let wordsData = await fetch(`https://byob-madlib.herokuapp.com/api/v1/text_samples/${randomIndex}/words`);
+    let textSampleData = await fetch(`https://byob-madlib.herokuapp.com/api/v1/text_samples/${randomIndex}`);
 
     let words = await wordsData.json();
     let textSample = await textSampleData.json();
