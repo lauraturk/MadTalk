@@ -1,6 +1,5 @@
 
 .GameOutput-container {
-  // background:  url('https://s-media-cache-ak0.pinimg.com/originals/7e/83/9b/7e839b71335bbaa071d1c202119e0c7b.jpg') cover no-repeat fixed;
   height: calc(100vh - 125px);
   z-index: 0;
   position: relative;
@@ -14,6 +13,7 @@
   width: 60%;
   max-width: 750px;
 }
+
 
 @media screen and (max-width: 900px){
   .video{
