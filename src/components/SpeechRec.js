@@ -15,6 +15,7 @@ export const SpeechRec = (props) => {
     let listeningClass = 'selected-word-input selected-word-input_listening';
 
     recognition.start();
+    
     recognition.onspeechend = () => {
       listeningClass = 'selected-word-input';
       recognition.stop();

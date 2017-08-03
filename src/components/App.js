@@ -29,6 +29,7 @@ class App extends Component {
       .then(textSample => {
         const selectedIndices = helper.getPartsOfSpeech(textSample.words);
         this.setState({
+          gameInputWords: [],
           textSample: textSample,
           selectedWords: selectedIndices,
           isLoading: false
