@@ -23,7 +23,7 @@ export const GameInputList = ({ selectedWordObj, handleGameInputs, speechEnabled
 
   return (
     <section id='game-input-list-container'>
-      <h3 className='game-title'>{gameTitle.textSample[0].title}</h3>
+      <h3 className='game-title-input'>{gameTitle.textSample[0].title}</h3>
       <div id='game-input-list'>{ gameInputArrObjs }</div>
       <Link to='/gameoutput' id='submit-inputs-btn'>submit</Link>
     </section>

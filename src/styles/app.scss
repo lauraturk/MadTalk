@@ -16,9 +16,7 @@ body{
   height: 100vh;
 }
 
-footer{
-  // position: fixed;
-  // bottom: 0;
+header{
   width: 100%;
   background-color: #111;
   font-family: $general-title;
@@ -34,11 +32,7 @@ h1{
 }
 
 .App {
-  // position: relative;
-  display: flex;
-  flex-wrap: wrap-reverse;
   text-align: center;
-  // height: 100vh;
 }
 
 button{
@@ -77,15 +71,6 @@ svg path{
   width: 100%;
 }
 
-.game-title {
-  font-family: 'Lobster', cursive;
-  font-size: 2em;
-  max-width: 600px;
-  position: absolute;
-  left: 30px;
-  top: 5px;
-  z-index: -1;
-}
 
 @media screen and (max-width: 768px){
 
@@ -93,21 +78,19 @@ svg path{
     flex-wrap: wrap;
   }
 
-  footer{
+  header{
     position: static;
     top: 0;
     font-size: 30px;
   }
 
-  .game-title {
+  .game-title-input, .game-title-output {
     font-size: 1.75em;
-    left: 20px;
-    top: 150px;
   }
 }
 
 @media screen and (max-width: 360px){
-  footer{
+  header{
     position: static;
     top: 0;
     font-size: 24px;
